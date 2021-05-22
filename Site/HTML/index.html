@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="../IMGS/logo's/logo_transparent.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem vindo!</title>
+    <title>BodyEvolution</title>
 
     <link rel="stylesheet" href="../CSS/style.css">
-    <script src=""></script>
+    <script src="../JS/script.js"></script>
 
 </head>
 <body>
     
     <header>
 
-        <img src="../IMGS/logo's/logo_transparent.png" alt="">
+        <a href="#home"><img src="../IMGS/logo's/logo_transparent.png" alt=""></a>
 
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Calcular Dieta</li>
+                <li><a href="#home"> Home </a></li>
+                <li><a href="#calculator"> Calcular Dieta </a></li>
                 <li>Cadastre-se</li>
                 <li>Login</li>
             </ul>
@@ -29,13 +30,108 @@
 
     <section id="home">
 
-        <div class="containerSlider">
+        <div id="containerSlider">
+
+            
 
         </div>
 
+    </section>
+
+    <section id="calculator">
+
+        <div class="middleContent">
+
+            <div class="titulo">Calculadora para montagem de dieta</div>
+
+            <div class="conteudoFormulario">
+
+                <div class="formPart" id="FormPt1">
+                <br>
+                <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Sexo*</span>
+                        <br>
+                        <input type="radio" id="in_sexo" name="genero" value="h">Masculino
+                        <br>
+                        <input type="radio" id="in_sexo" name="genero" value="m">Feminino
+                    
+                    </div>
+                <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Biotipo*</span>
+                        <br>
+                        <input type="radio" id="in_biotipo" name="biotipo" value="ecto">Ectomorfo
+                        <br>
+                        <input type="radio" id="in_biotipo" name="biotipo" value="meso">Mesomorfo
+                        <br>
+                        <input type="radio" id="in_biotipo" name="biotipo" value="endo">Endomorfo
+                    
+                    </div>
+                <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Objetivo*</span>
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="perder">Perder Peso
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="manter">Manter Peso
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="ganhar">Ganhar Peso
+                    
+                    </div>
+
+                </div>
+
+                <div class="formPart" id="FormPt2">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Idade*</span>
+                        <br>
+                        <input type="number" id="in_idade" class="inpt" name="idade" min="1" max="130" required>
+                     
+                    </div>
+                    <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Altura(cm)*</span>
+                        <br>
+                        <input type="number" id="in_altura" class="inpt" name="altura" min="1" max="300" required>
+                     
+                    </div>
+                    <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Peso(kg)*</span>
+                        <br>
+                        <input type="text" id="in_peso" class="inpt" name="peso" minlength="1" maxlength="5" required>
+                     
+                    </div>
+                    
+                </div>
+
+                <div class="formPart">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="asideContent"></div>
+        
     </section>
 
 
 
 </body>
 </html>
+
+<script>
+
+</script>

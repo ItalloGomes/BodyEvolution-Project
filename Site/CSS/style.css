@@ -5,6 +5,8 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -12,13 +14,13 @@ body::-webkit-scrollbar {
 }
   
 body::-webkit-scrollbar-track {
-    background: rgb(216, 216, 216);
+    background: #d8d8d8;
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: rgb(0, 0, 0);
+    background-color: #232323;
     border-radius: 10px;
-  }
+}
 
 a{
     text-decoration: none;
@@ -28,7 +30,7 @@ a{
 
 a:hover{
     transition: 0.5s;
-    color: rgb(19, 140, 177);
+    color: #8f8f8f;
 }
 
 header{
@@ -42,6 +44,9 @@ header{
     background-color: #232323;
     color: white;
 
+    z-index: 1;
+
+    opacity: 0.9;
 }
 
 header img{
@@ -88,7 +93,7 @@ nav li{
 
 header nav li:hover{
 
-    color: rgb(143, 143, 143);
+    color: #8f8f8f;
 }
 
 
@@ -97,20 +102,140 @@ header nav li:hover{
 #home{
     height: 100vh;
     width: 100vw;
-
-    background-color: aqua;
 }
 
-.containerSlider{
+#containerSlider{
     position: relative;
 
-    top: 22vh;
+    top: 0vh;
     
-    height: 70vh;
+    height: 100vh;
     width: 100vw;
 
+    background-color: #535353;
+    background-image: url('../IMGS/slider/back1.jpg');
+    background-size: cover;
+    background-position-y: -7vh;
+    background-repeat: no-repeat;
 
-
-    background-color: rgb(83, 83, 83);
+    transition: 2s;
 }
 
+
+/*   SECTION -Calculadora-   */
+
+#calculator{
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #ffffff;
+
+    background-image: url('../IMGS/back_calculator.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.middleContent{
+    float: left;
+    position: relative;
+
+    top: 24vh;
+    left: 5vw;
+    
+    height: 68vh;
+    width: 63vw;
+
+    padding: 5px 10px 5px 10px;
+
+    border-radius: 10px;
+
+    background-color: #e6e6e6e7;
+
+    transition: 0.3s;
+
+    box-shadow: 0em 0em 3em black;
+}
+
+.titulo{
+    width: 100%;
+
+    padding-left: 0.2em;
+
+    color: #232323;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.conteudoFormulario{
+    height: 85%;
+    width: 100%;
+}
+
+.formPart{
+    float: left;
+    position: relative;
+
+    top: 1vh;
+    left: 0.2vw;
+
+    padding: 10px;
+    margin-left: 0.5vw;
+
+    height: 95%;
+    width: 35.5%;
+
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#FormPt1{
+    width: 17.3%;
+}
+
+#FormPt2{
+    width: 22.3%;
+}
+
+.topicoFormularioCalculadora{
+    height: auto;
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+.txtFormularioCalculadora{
+    font-weight: bold;
+}
+
+.inpt{
+    width: 6vw;
+
+    background-color: #d8d8d8e7;
+
+    padding: 10px;
+    
+    border: none;
+    border-bottom: 1px solid black;
+
+    outline: none;
+}
+
+
+.asideContent{
+    float: left;
+    position: relative;
+
+    top: 24vh;
+    left: 10vw;
+    
+    height: 70vh;
+    width: 20vw;
+
+    border-radius: 10px;
+
+    background-color: #cececee7;
+
+    transition: 0.3s;
+
+    box-shadow: 0em 0em 3em black;
+}
