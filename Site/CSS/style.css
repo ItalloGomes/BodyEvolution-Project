@@ -139,13 +139,13 @@ header nav li:hover{
     float: left;
     position: relative;
 
-    top: 24vh;
+    top: 25vh;
     left: 5vw;
     
-    height: 68vh;
-    width: 63vw;
+    height: auto;
+    width: 58vw;
 
-    padding: 5px 10px 5px 10px;
+    padding: 5px 10px 20px 10px;
 
     border-radius: 10px;
 
@@ -175,40 +175,37 @@ header nav li:hover{
     float: left;
     position: relative;
 
-    top: 1vh;
     left: 0.2vw;
 
-    padding: 10px;
+    padding: 30px 10px 30px 10px;
+
+    margin-top: 1em;
     margin-left: 0.5vw;
 
-    height: 95%;
-    width: 35.5%;
+    height: auto;
+    width: 94.5%;
 
     border: 1px solid;
     border-radius: 10px;
 }
 
-#FormPt1{
-    width: 17.3%;
-}
-
-#FormPt2{
-    width: 22.3%;
-}
-
 .topicoFormularioCalculadora{
-    height: auto;
-    width: 100%;
+    position: relative;
+    float: left;
 
-    margin: 0 auto;
+    left: 4em;
+
+    height: auto;
+    width: 30%;
 }
 
 .txtFormularioCalculadora{
+    color: #232323;
     font-weight: bold;
 }
 
 .inpt{
-    width: 6vw;
+    width: 10vw;
 
     background-color: #d8d8d8e7;
 
@@ -220,6 +217,11 @@ header nav li:hover{
     outline: none;
 }
 
+.txtDesc{
+    font-size: 12px;
+
+    color: brown;
+}
 
 .asideContent{
     float: left;
@@ -228,14 +230,61 @@ header nav li:hover{
     top: 24vh;
     left: 10vw;
     
-    height: 70vh;
-    width: 20vw;
+    height: auto;
+    width: 24vw;
 
+    padding: 20px 10px 20px 10px;
     border-radius: 10px;
 
-    background-color: #cececee7;
+    background-color: #e6e6e6e7;
 
     transition: 0.3s;
 
     box-shadow: 0em 0em 3em black;
+}
+
+.topicoFormularioCalculadoraR{
+    position: relative;
+
+    height: auto;
+    width: 100%;
+}
+
+.macros{
+    display: flex;
+
+    height: auto;
+    width: 100%;
+
+    justify-content: center;
+
+    margin: 0 auto;
+
+    color: #d8d8d8;
+}
+
+.macro{
+    float: left;
+
+    height: 95px;
+    width: 95px;
+
+    border-radius: 50%;
+
+    text-align: center;
+    margin: 3px;
+
+    background-color: brown;
+}
+
+.descMacro{
+    position: relative;
+    top: 25px;
+}
+
+.gMacro{
+    position: relative;
+    top: 25px;
+
+    font-weight: bold;
 }

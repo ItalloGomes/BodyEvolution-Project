@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="shortcut icon" href="../IMGS/logo's/logo_transparent.png" type="image/x-icon">
     <meta charset="UTF-8">
@@ -11,8 +12,9 @@
     <script src="../JS/script.js"></script>
 
 </head>
+
 <body>
-    
+
     <header>
 
         <a href="#home"><img src="../IMGS/logo's/logo_transparent.png" alt=""></a>
@@ -32,7 +34,7 @@
 
         <div id="containerSlider">
 
-            
+
 
         </div>
 
@@ -46,92 +48,394 @@
 
             <div class="conteudoFormulario">
 
-                <div class="formPart" id="FormPt1">
-                <br>
-                <br>
+                <div class="formPart">
+
                     <div class="topicoFormularioCalculadora">
-                    
+
                         <span class="txtFormularioCalculadora">Sexo*</span>
                         <br>
-                        <input type="radio" id="in_sexo" name="genero" value="h">Masculino
+                        <input type="radio" id="in_sexo" name="genero" value="m" onchange="selectSexo()">
+                        Masculino
                         <br>
-                        <input type="radio" id="in_sexo" name="genero" value="m">Feminino
-                    
+                        <input type="radio" id="in_sexo" name="genero" value="f" onchange="selectSexo()">
+                        Feminino
+
                     </div>
-                <br>
+
                     <div class="topicoFormularioCalculadora">
-                    
+
                         <span class="txtFormularioCalculadora">Biotipo*</span>
                         <br>
-                        <input type="radio" id="in_biotipo" name="biotipo" value="ecto">Ectomorfo
+                        <input type="radio" id="in_biotipo" name="biotipo" value="ecto" onchange="selectBiotipo()">
+                        Ectomorfo
                         <br>
-                        <input type="radio" id="in_biotipo" name="biotipo" value="meso">Mesomorfo
+                        <input type="radio" id="in_biotipo" name="biotipo" value="meso" onchange="selectBiotipo()">
+                        Mesomorfo
                         <br>
-                        <input type="radio" id="in_biotipo" name="biotipo" value="endo">Endomorfo
-                    
+                        <input type="radio" id="in_biotipo" name="biotipo" value="endo" onchange="selectBiotipo()">
+                        Endomorfo
+
                     </div>
-                <br>
+
                     <div class="topicoFormularioCalculadora">
-                    
+
                         <span class="txtFormularioCalculadora">Objetivo*</span>
                         <br>
-                        <input type="radio" id="in_objetivo" name="objetivo" value="perder">Perder Peso
+                        <input type="radio" id="in_objetivo" name="objetivo" value="perder" onchange="selectObjetivo()">
+                        Perder Peso
                         <br>
-                        <input type="radio" id="in_objetivo" name="objetivo" value="manter">Manter Peso
+                        <input type="radio" id="in_objetivo" name="objetivo" value="manter" onchange="selectObjetivo()">
+                        Manter Peso
                         <br>
-                        <input type="radio" id="in_objetivo" name="objetivo" value="ganhar">Ganhar Peso
-                    
+                        <input type="radio" id="in_objetivo" name="objetivo" value="ganhar" onchange="selectObjetivo()">
+                        Ganhar Peso
+
                     </div>
 
                 </div>
 
                 <div class="formPart" id="FormPt2">
-                    <br>
-                    <br>
-                    <br>
+
                     <div class="topicoFormularioCalculadora">
-                    
+
                         <span class="txtFormularioCalculadora">Idade*</span>
                         <br>
-                        <input type="number" id="in_idade" class="inpt" name="idade" min="1" max="130" required>
-                     
+                        <input type="number" id="in_idade" class="inpt" name="idade" min="1" max="130"
+                            onkeyup="setIdade()" required>
+
                     </div>
-                    <br>
+
                     <div class="topicoFormularioCalculadora">
-                    
+
                         <span class="txtFormularioCalculadora">Altura(cm)*</span>
                         <br>
-                        <input type="number" id="in_altura" class="inpt" name="altura" min="1" max="300" required>
-                     
+                        <input type="number" id="in_altura" class="inpt" name="altura" min="1" max="300"
+                            onkeyup="setAltura()" required>
+
                     </div>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Peso(kg)*</span>
+                        <br>
+                        <input type="text" id="in_peso" class="inpt" name="peso" minlength="1" maxlength="5"
+                            onkeyup="setPeso()" required>
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="formPart">
+
                     <br>
                     <div class="topicoFormularioCalculadora">
                     
-                        <span class="txtFormularioCalculadora">Peso(kg)*</span>
+                        <span class="txtFormularioCalculadora">Pescoço(cm)</span>
                         <br>
-                        <input type="text" id="in_peso" class="inpt" name="peso" minlength="1" maxlength="5" required>
+                        <input type="text" id="in_pescoco" class="inpt" name="pescoco" minlength="1" maxlength="3" required>
+                     
+                    </div>
+
+                    <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Cintura(cm)</span>
+                        <br>
+                        <input type="text" id="in_cintura" class="inpt" name="cintura" minlength="1" maxlength="3" required>
+                     
+                    </div>
+
+                    <br>
+                    <div class="topicoFormularioCalculadora">
+                    
+                        <span class="txtFormularioCalculadora">Quadril(cm)</span>
+                        <br>
+                        <input type="text" id="in_quadril" class="inpt" name="quadril" minlength="1" maxlength="3" required>
                      
                     </div>
                     
+                </div> -->
+
+            </div>
+
+        </div>
+
+        <div class="asideContent">
+
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora">Taxa Metabólica Basal(TMB)</span>
+                <br>
+                <input type="text" id="in_tmb" class="inpt" name="tmb" placeholder="Kcal" disabled>
+                <br>
+                <span class="txtDesc">Calorias que seu corpo gasta em descanso.</span>
+
+            </div>
+            <br>
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora">Tempo do treino(minutos)*</span>
+                <br>
+                <input type="number" id="in_tempoTreino" class="inpt" name="tptreino" min="1" max="300"
+                    onkeyup="setTempoTreino()" required>
+
+            </div>
+            <br>
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora">Gasto Calórico com Atividade Física</span>
+                <br>
+                <input type="text" id="in_gastoCalorico" class="inpt" name="tmb" placeholder="Kcal" disabled>
+                <br>
+                <span class="txtDesc">Calorias que seu corpo gasta em descanso somados com o treino.</span>
+
+            </div>
+
+            <br>
+
+            <div class="macros">
+
+                <div class="macro">
+                    <span class="descMacro">Proteína</span>
+                    <br>
+                    <span class="gMacro" id="gMacroP"></span>
                 </div>
 
-                <div class="formPart">
-                    
+                <div class="macro">
+                    <span class="descMacro">Gordura</span>
+                    <br>
+                    <span class="gMacro" id="gMacroG"></span>
+                </div>
+
+                <div class="macro">
+                    <span class="descMacro">Carboidrato</span>
+                    <br>
+                    <span class="gMacro" id="gMacroC"></span>
                 </div>
 
             </div>
 
         </div>
 
-        <div class="asideContent"></div>
-        
     </section>
 
 
 
 </body>
+
 </html>
 
 <script>
+
+    var sexo;
+    var biotipo;
+    var objetivo;
+
+    var idade = 0;
+    var altura = 0;
+    var peso = 0;
+
+    var tmb = 0;
+    var tempoTreino = 0;
+
+    function selectSexo() {
+        sexo = document.querySelector('input[name="genero"]:checked').value;
+        console.log(sexo);
+
+        if (sexo == "m") {
+            tmbHomem();
+        } else {
+            tmbMulher();
+        }
+    }
+
+    function selectBiotipo() {
+        biotipo = document.querySelector('input[name="biotipo"]:checked').value;
+        console.log(biotipo);
+
+        if (sexo == "m") {
+            tmbHomem();
+        } else {
+            tmbMulher();
+        }
+    }
+
+    function selectObjetivo() {
+        objetivo = document.querySelector('input[name="objetivo"]:checked').value;
+        console.log(objetivo);
+
+        if (sexo == "m") {
+            tmbHomem();
+        } else {
+            tmbMulher();
+        }
+    }
+
+
+    function setIdade() {
+
+        idade = Number(document.getElementById('in_idade').value);
+
+        if (sexo == "m" || sexo == "f") {
+
+            if (sexo == "m") {
+                tmbHomem();
+            } else {
+                tmbMulher();
+            }
+
+        } else {
+            tmbHomem();
+        }
+
+        console.log(idade);
+    }
+
+    function setAltura() {
+
+        altura = Number(document.getElementById('in_altura').value);
+
+        if (sexo == "m" || sexo == "f") {
+
+            if (sexo == "m") {
+                tmbHomem();
+            } else {
+                tmbMulher();
+            }
+
+        } else {
+            tmbHomem();
+        }
+
+        console.log(altura);
+    }
+
+    function setPeso() {
+
+        peso = Number(document.getElementById('in_peso').value);
+
+        if (sexo == "m" || sexo == "f") {
+
+            if (sexo == "m") {
+                tmbHomem();
+            } else {
+                tmbMulher();
+            }
+
+        } else {
+            tmbHomem();
+        }
+
+        console.log(peso);
+    }
+
+    function setTempoTreino() {
+
+        tempoTreino = Number(document.getElementById('in_tempoTreino').value);
+
+        if (sexo == "m" || sexo == "f") {
+
+            if (sexo == "m") {
+                tmbHomem();
+            } else {
+                tmbMulher();
+            }
+
+        } else {
+            tmbHomem();
+        }
+
+        console.log(tempoTreino);
+
+    }
+
+    function tmbHomem() {
+
+        // Calculo da taxa metabolica basal    
+        let equacaoTMBH = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
+
+        console.log(equacaoTMBH)
+
+        in_tmb.value = `${equacaoTMBH.toFixed(2)} Kcal`;
+
+        // Pegando a duracao do treino
+        let duracaoTreino = Number(document.getElementById('in_tempoTreino').value);
+
+        // Calculo do gasto total de calorias com treino
+        let equacaoGastoCalorico = (0.086 * duracaoTreino * peso);
+
+        let total = (equacaoGastoCalorico + equacaoTMBH);
+
+        in_gastoCalorico.value = `${total.toFixed(2)} Kcal`;
+
+    // MacroNutrientes
+
+        var proteina = peso * 2.3;
+        var gordura = peso * 0.8;
+
+        if (objetivo == "perder") {
+
+            var carbo = ((total * 0.80) - ((proteina * 4) + (gordura * 9))) / 4;
+
+        } else if (objetivo == "manter") {
+
+            var carbo = (total - ((proteina * 4) + (gordura * 9))) / 4;
+
+        } else {
+
+            var carbo = ((total * 1.10) - ((proteina * 4) + (gordura * 9))) / 4;
+
+        }
+
+        gMacroP.innerHTML = `${proteina.toFixed(1)}g`;
+        gMacroG.innerHTML = `${gordura.toFixed(1)}g`;
+        gMacroC.innerHTML = `${carbo.toFixed(1)}g`;
+
+    }
+
+    function tmbMulher() {
+
+        // Calculo da taxa metabolica basal
+        let equacaoTMBF = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
+
+        console.log(equacaoTMBF);
+
+        in_tmb.value = `${equacaoTMBF.toFixed(2)} Kcal`;
+
+        // Pegando a duracao do treino
+        let duracaoTreino = Number(document.getElementById('in_tempoTreino').value);
+
+        // Calculo do gasto total de calorias com treino
+        let equacaoGastoCalorico = (0.086 * duracaoTreino * peso);
+
+        let total = (equacaoGastoCalorico + equacaoTMBH);
+
+        in_gastoCalorico.value = `${total.toFixed(2)} Kcal`;
+
+    // MacroNutrientes
+
+        var proteina = peso * 2.3;
+        var gordura = peso * 0.8;
+
+        if (objetivo == "perder") {
+
+            var carbo = ((total * 0.80) - ((proteina * 4) + (gordura * 9))) / 4;
+
+        } else if (objetivo == "manter") {
+
+            var carbo = (total - ((proteina * 4) + (gordura * 9))) / 4;
+
+        } else {
+
+            var carbo = ((total * 1.10) - ((proteina * 4) + (gordura * 9))) / 4;
+
+        }
+
+        gMacroP.innerHTML = `${proteina.toFixed(1)}g`;
+        gMacroG.innerHTML = `${gordura.toFixed(1)}g`;
+        gMacroC.innerHTML = `${carbo.toFixed(1)}g`;
+
+    }
+
 
 </script>
