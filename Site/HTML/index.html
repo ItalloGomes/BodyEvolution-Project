@@ -125,37 +125,6 @@
 
                 </div>
 
-                <!-- <div class="formPart">
-
-                    <br>
-                    <div class="topicoFormularioCalculadora">
-                    
-                        <span class="txtFormularioCalculadora">Pescoço(cm)</span>
-                        <br>
-                        <input type="text" id="in_pescoco" class="inpt" name="pescoco" minlength="1" maxlength="3" required>
-                     
-                    </div>
-
-                    <br>
-                    <div class="topicoFormularioCalculadora">
-                    
-                        <span class="txtFormularioCalculadora">Cintura(cm)</span>
-                        <br>
-                        <input type="text" id="in_cintura" class="inpt" name="cintura" minlength="1" maxlength="3" required>
-                     
-                    </div>
-
-                    <br>
-                    <div class="topicoFormularioCalculadora">
-                    
-                        <span class="txtFormularioCalculadora">Quadril(cm)</span>
-                        <br>
-                        <input type="text" id="in_quadril" class="inpt" name="quadril" minlength="1" maxlength="3" required>
-                     
-                    </div>
-                    
-                </div> -->
-
             </div>
 
         </div>
@@ -230,6 +199,82 @@
 
     <section id="cadastro">
 
+        <div class="div_esquerda">
+
+            <img class="imgDivEsquerda" src="https://image.flaticon.com/icons/png/512/1000/1000008.png" alt="">
+
+            <div class="textDivEsquerda">
+                <br>
+                Adicione os exercícios praticados em seu treino, gerencie suas cargas, evolua constantemente!
+                <br><br>
+                Observe seu progresso de forma visual com gráficos.
+
+            </div>
+
+        </div>
+
+        <div class="div_meio">
+
+            <h1>Crie a sua Conta Evolution</h1>
+
+            <div class="formulario">
+            
+                <br><br>
+                <form action="">
+
+                    <input type="text" id="nome_usuario" name="nome" class="inpt_cadastro" 
+                    placeholder="Nome completo" onkeyup="validaNome()">
+
+                    <input type="date" id="data_nascto" name="dataNascto" class="inpt_cadastro">
+
+                    <br><br><br>
+
+                    <input type="text" id="email_usuario" name="email" class="inpt_cadastro" 
+                    placeholder="Email" onkeyup="validaEmail()">
+
+                    <br><br>
+
+                    <input type="password" id="senha_usuario" name="senha" class="inpt_senha_cadastro" 
+                    placeholder="Senha" onkeyup="validaSenha()">
+
+                    <input type="password" id="validaSenha_usuario" class="inpt_senha_cadastro" 
+                    placeholder="Confirmar senha" onkeyup="validaSenha2()">
+
+                    <input type="submit" id="btn_cadastro" class="button_cadastro" value="Cadastrar">
+    
+                </form>
+
+                <div class="alerta" id="sucessoC">
+                    <img src="../IMGS/sucesso.png" alt="">
+                    <p>Cadastrado!</p>
+                </div>
+
+                <div class="alerta" id="falhaC">
+                    <img src="../IMGS/warning.png" alt="">
+                    <p>Verifique os campos!</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="div_direita">
+
+            <img class="imgDivDireita" src="https://img.icons8.com/ios/452/industrial-scales.png" alt="">
+
+            <div class="textDivDireita">
+
+                <br>
+                Anote suas medidas corporais, tenha acesso a referenciais a partir da relação do seu 
+                percentual de gordura e massa magra, controle seus macro nutrientes e dieta
+                <br><br>
+                Tenha acesso a gráficos de evoluções do seu corpo, evolução de medidas, peso e 
+                percentual de gordura 
+
+            </div>
+
+        </div>
 
     </section>
 
@@ -241,230 +286,78 @@
 
 <script>
 
-    var sexo;
-    var biotipo;
-    var objetivo;
+    // VALIDAÇÃO DO FORMULARIO
 
-    var idade = 0;
-    var altura = 0;
-    var peso = 0;
+    function validaNome() {
+        var nome = nome_usuario.value;
 
-    var tmb = 0;
-    var tempoTreino = 0;
-
-    function selectSexo() {
-        sexo = document.querySelector('input[name="genero"]:checked').value;
-        console.log(sexo);
-
-        if (sexo == "m") {
-            tmbHomem();
+        if (nome.length < 3) {
+            document.querySelector("#nome_usuario").style.borderColor = "red"
         } else {
-            tmbMulher();
+            document.querySelector("#nome_usuario").style.borderColor = "green"
         }
     }
 
-    function selectBiotipo() {
-        biotipo = document.querySelector('input[name="biotipo"]:checked').value;
-        console.log(biotipo);
+    function validaEmail() {
+        var email = email_usuario.value;
 
-        if (sexo == "m") {
-            tmbHomem();
+        if (email.indexOf('@') > 2 && email.indexOf('.com') > (email.indexOf('@') + 1)) {
+            document.querySelector("#email_usuario").style.borderColor = "green"
         } else {
-            tmbMulher();
+            document.querySelector("#email_usuario").style.borderColor = "red"
         }
     }
 
-    function selectObjetivo() {
-        objetivo = document.querySelector('input[name="objetivo"]:checked').value;
-        console.log(objetivo);
+    function validaSenha() {
+        var senha = senha_usuario.value;
 
-        if (sexo == "m") {
-            tmbHomem();
+        if (senha.length > 7) {
+            document.querySelector("#senha_usuario").style.borderColor = "green"
         } else {
-            tmbMulher();
+            document.querySelector("#senha_usuario").style.borderColor = "red"
         }
     }
 
+    function validaSenha2() {
+        var senha1 = senha_usuario.value;
+        var senha2 = validaSenha_usuario.value;
 
-    function setIdade() {
-
-        idade = Number(document.getElementById('in_idade').value);
-
-        if (sexo == "m" || sexo == "f") {
-
-            if (sexo == "m") {
-                tmbHomem();
-            } else {
-                tmbMulher();
-            }
-
+        if (senha1 == senha2 && senha2 != "") {
+            document.querySelector("#validaSenha_usuario").style.borderColor = "green"
         } else {
-            tmbHomem();
+            document.querySelector("#validaSenha_usuario").style.borderColor = "red"
         }
-
-        console.log(idade);
     }
 
-    function setAltura() {
+    function validaFormulario() {
+        validaNome();
+        validaEmail();
+        validaSenha();
+        validaSenha2();
 
-        altura = Number(document.getElementById('in_altura').value);
+        if (document.querySelector("#nome_usuario").style.borderColor = "green" &&
+            document.querySelector("#email_usuario").style.borderColor == "green" &&
+            document.querySelector("#validaSenha_usuario").style.borderColor == "green") {
 
-        if (sexo == "m" || sexo == "f") {
-
-            if (sexo == "m") {
-                tmbHomem();
-            } else {
-                tmbMulher();
-            }
-
-        } else {
-            tmbHomem();
-        }
-
-        console.log(altura);
-    }
-
-    function setPeso() {
-
-        peso = Number(document.getElementById('in_peso').value);
-
-        if (sexo == "m" || sexo == "f") {
-
-            if (sexo == "m") {
-                tmbHomem();
-            } else {
-                tmbMulher();
-            }
-
-        } else {
-            tmbHomem();
-        }
-
-        console.log(peso);
-    }
-
-    function setTempoTreino() {
-
-        tempoTreino = Number(document.getElementById('in_tempoTreino').value);
-
-        if (sexo == "m" || sexo == "f") {
-
-            if (sexo == "m") {
-                tmbHomem();
-            } else {
-                tmbMulher();
-            }
-
-        } else {
-            tmbHomem();
-        }
-
-        console.log(tempoTreino);
-
-    }
-
-    function tmbHomem() {
-
-        // Calculo da taxa metabolica basal    
-        let equacaoTMBH = (10 * peso) + (6.25 * altura) - (5 * idade) + 5;
-
-        console.log(equacaoTMBH)
-
-        in_tmb.value = `${equacaoTMBH.toFixed(2)} Kcal`;
-
-        // Pegando a duracao do treino
-        let duracaoTreino = Number(document.getElementById('in_tempoTreino').value);
-
-        // Calculo do gasto total de calorias com treino
-        let equacaoGastoCalorico = (0.086 * duracaoTreino * peso);
-
-        let total = (equacaoGastoCalorico + equacaoTMBH);
-
-        in_gastoCalorico.value = `${total.toFixed(2)} Kcal`;
-
-    // MacroNutrientes
-
-        var proteina = peso * 2.3;
-        var gordura = peso * 0.8;
-
-        if (objetivo == "perder") {
-
-            var carbo = ((total * 0.80) - ((proteina * 4) + (gordura * 9))) / 4;
-
-        } else if (objetivo == "manter") {
-
-            var carbo = (total - ((proteina * 4) + (gordura * 9))) / 4;
+            document.getElementById("sucessoC").style.display = "block";
+            document.getElementById("falhaC").style.display = "none";
 
         } else {
 
-            var carbo = ((total * 1.10) - ((proteina * 4) + (gordura * 9))) / 4;
+            document.getElementById("falhaC").style.display = "block";
+            document.getElementById("sucessoC").style.display = "none";
 
         }
 
-        gMacroP.innerHTML = `${proteina.toFixed(1)}g`;
-        gMacroG.innerHTML = `${gordura.toFixed(1)}g`;
-        gMacroC.innerHTML = `${carbo.toFixed(1)}g`;
-
-    // Consumir
-
-        var kcalDeficit = (proteina*4) + (gordura*9) + (carbo*4);
-
-        consumir.innerHTML = `Para ${objetivo} peso consuma`;
-
-        in_deficit.value = `${kcalDeficit.toFixed(2)} Kcal`;
-
     }
 
-    function tmbMulher() {
-
-        // Calculo da taxa metabolica basal
-        let equacaoTMBF = (10 * peso) + (6.25 * altura) - (5 * idade) - 161;
-
-        console.log(equacaoTMBF);
-
-        in_tmb.value = `${equacaoTMBF.toFixed(2)} Kcal`;
-
-        // Pegando a duracao do treino
-        let duracaoTreino = Number(document.getElementById('in_tempoTreino').value);
-
-        // Calculo do gasto total de calorias com treino
-        let equacaoGastoCalorico = (0.086 * duracaoTreino * peso);
-
-        let total = (equacaoGastoCalorico + equacaoTMBH);
-
-        in_gastoCalorico.value = `${total.toFixed(2)} Kcal`;
-
-    // MacroNutrientes
-
-        var proteina = peso * 2.3;
-        var gordura = peso * 0.8;
-
-        if (objetivo == "perder") {
-
-            var carbo = ((total * 0.80) - ((proteina * 4) + (gordura * 9))) / 4;
-
-        } else if (objetivo == "manter") {
-
-            var carbo = (total - ((proteina * 4) + (gordura * 9))) / 4;
-
-        } else {
-
-            var carbo = ((total * 1.10) - ((proteina * 4) + (gordura * 9))) / 4;
-
-        }
-
-        gMacroP.innerHTML = `${proteina.toFixed(1)}g`;
-        gMacroG.innerHTML = `${gordura.toFixed(1)}g`;
-        gMacroC.innerHTML = `${carbo.toFixed(1)}g`;
-
-    // Consumir
-
-        var kcalDeficit = (proteina*4) + (gordura*9) + (carbo*4);
-
-        consumir.innerHTML = `Para ${objetivo} peso consuma`;
-
-        in_deficit.value = `${kcalDeficit.toFixed(2)} Kcal`;
-
+    function limpaFormulario(){
+        nome_funcionario.value = "";
+        sel_empresa.value = "";
+        email_institucional_funcionario.value = "";
+        senha_funcionario.value = "";
+        verificaSenha_funcionario.value = "";
     }
+
 
 </script>

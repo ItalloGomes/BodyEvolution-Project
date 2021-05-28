@@ -302,19 +302,256 @@ header nav li:hover{
     width: 100vw;
 
     background-color: #502424;
-
+    background-image: url(../IMGS/back_cadastro.png);
     background-size: cover;
     background-repeat: no-repeat;
+
+    box-shadow: inset 0 0 2em black;
 }
 
 
+.div_esquerda{
+    position: relative;
+    float: left;
+
+    height: 35vh;
+    width: 18vw;
+
+    top: 56vh;
+    left: 3vw;
+
+    text-align: center;
+
+    background-color: #000000ad;
+
+    border: 3px solid #0bccccad;
+    border-radius: 10px;
+}
+
+.imgDivEsquerda{
+    position: relative;
+
+    height: 7vh;
+    width: 4vw;
+
+    top: -12vh;
+
+    padding: 10px;
+
+    border: 5px solid #0de4e4ad;
+    border-radius: 50%;
+}
+
+.textDivEsquerda{
+    position: relative;
+
+    height: 30vh;
+    width: 15.5vw;
+
+    top: -11vh;
+    left: 0.5vw;
+
+    padding: 10px;
+
+    text-align: justify;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+
+}
+
+.div_meio{
+    position: relative;
+    float: left;
+
+    height: 70vh;
+    width: 50vw;
+
+    top: 24vh;
+    left: 6vw;
 
 
+    background-color: #000000ad;
 
+    border: 3px solid #0bccccad;
+    border-radius: 10px;
+}
 
+.div_meio h1{
+    font-size: 2em;
 
+    color: white;
+    text-align: center;
+}
 
+.formulario{
+    height: 55vh;
+    width: 36vw;
 
+    margin: 0 auto;
+}
 
+.descInpt{
+    color: white;
+    font-size: 1.3em;
+}
 
+.inpt_cadastro{
+    height: 7vh;
+    width: 22vw;
 
+    border-radius: 5px;
+    border: 1px solid;
+
+    font-size: 1.1em;
+
+    padding-left: 1vw;
+
+    outline: none;
+}
+
+.inpt_cadastro ::-webkit-input-placeholder {
+    font-size: 1.3em;
+}
+
+.inpt_senha_cadastro{
+    height: 7vh;
+    width: 10.2vw;
+
+    border-radius: 5px;
+    border: 1px solid;
+
+    font-size: 1em;
+
+    padding-left: 1vw;
+
+    outline: none;
+}
+
+.inpt_senha_cadastro ::-webkit-input-placeholder {
+    font-size: 1em;
+}
+
+#data_nascto{
+    height: 7vh;
+    width: 10vw;
+
+    margin-left: 1em;
+}
+
+.alerta{
+    position: absolute;
+}
+
+.alerta img{
+    width: 50px;
+}
+
+.alerta p{
+    position: relative;
+
+    top: -5vh;
+
+    font-size: 1rem;
+}
+
+#sucessoC{
+    top: 40vh;
+    left: 34vw;
+    display: none;
+}
+
+#falhaC{
+    top: 40vh;
+    left: 34vw;
+    display: none;
+}
+
+#falhaCL{
+    top: 15vh;
+    left: 11.5vw;
+    display: none;
+}
+
+#falhaCL p{
+    top: -3vh;
+}
+
+.button_cadastro{
+    height: 7vh;
+    width: 11.3vw;
+
+    border-radius: 5px;
+    border: 1px solid;
+
+    font-size: 1em;
+
+    margin-left: 1vw;
+
+    cursor: pointer;
+    transition: .5s;
+
+    color: white;
+
+    background-color: #0a9e9ead;
+}
+
+.button_cadastro:hover{
+    background-color: #0de4e4ad;
+    
+    transform: scale(1.1);
+}
+
+/* Div direita*/
+
+.div_direita{
+    position: relative;
+    float: left;
+
+    height: 50.5vh;
+    width: 18vw;
+
+    top: 40vh;
+    left: 9vw;
+
+    text-align: center;
+
+    background-color: #000000ad;
+
+    border: 3px solid #0bccccad;
+    border-radius: 10px;
+}
+
+.imgDivDireita{
+    position: relative;
+
+    height: 7vh;
+    width: 4vw;
+
+    top: -12vh;
+
+    padding: 10px;
+
+    border: 5px solid #0de4e4ad;
+    border-radius: 50%;
+}
+
+.textDivDireita{
+    position: relative;
+
+    height: 45vh;
+    width: 15.5vw;
+
+    top: -11vh;
+    left: 0.5vw;
+
+    padding: 10px;
+
+    text-align: justify;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+
+}
