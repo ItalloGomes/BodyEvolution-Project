@@ -5,7 +5,7 @@ var n = 1;
 
 function mudaBackground(){
 
-    if(n < 6){
+    if(n < 5){
         
         // console.log('entrou 1')
         

@@ -25,9 +25,9 @@ module.exports = {
   // Insira aqui seus dados do banco LOCAL - MySQL Workbench
   dev: {
     // altere APENAS username, password e database.
-    username: 'root',
-    password: 'asd123',
-    database: 'enviadados',
+    username: 'admBodyEvolution',
+    password: 'bodyevolution',
+    database: 'bdbodyevolution',
     host: '127.0.0.1',
     dialect: 'mysql',
     xuse_env_variable: 'DATABASE_URL',

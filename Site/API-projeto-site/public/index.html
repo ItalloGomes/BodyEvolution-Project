@@ -1,87 +1,331 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="../IMGS/logo's/logo_transparent.png" type="image/x-icon">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto IoT</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>BodyEvolution</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
     <script src="https://kit.fontawesome.com/48b24e7021.js" crossorigin="anonymous"></script>
+    
+    <script src="JS/scriptIndex.js"></script>
+    <script src="JS/calculadora.js"></script>
+    <script src="JS/validacoesForm.js"></script>
+    <script src="JS/cadastro.js"></script>
+    <script src="JS/login.js"></script>
 </head>
 
 <body>
-    <!--header inicio-->
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo"><span class="highlight">Projeto</span> IoT Revolucionário</h1>
-            <div class="nav">
-                <ul>
-                    <li><a href="" class="current">Home</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </div>
+
+    <header>
+
+        <a href="#home"><img src="IMGS/logo's/logo_transparent.png" alt=""></a>
+
+        <nav>
+            <ul>
+                <li><a href="#home"> Home </a></li>
+                <li><a href="#calculator"> Calcular Dieta </a></li>
+                <li><a href="#cadastro"> Cadastre-se </a></li>
+                <li><button class="login" id="login" onclick="iniciaModal('modal-login')">Login</button></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <div id="modal-login" class="containerModal">
+        <div class="modal">
+            <button class="close">X</button>
+
+            <img class="imgLogin" src="IMGS/logo's/logo_transparent.png" alt="">
+            
+
+            <form id="form_login" method="post" onsubmit="return entrar()">
+
+                <div class="alerta" id="falhaCL">
+                    <img src="IMGS/warning.png" alt="">
+                    <p id="erro">Falha ao logar, verifique os campos!</p>
+                </div>
+
+                <input id="in_email" name="emailUsuario" class="in_modal" type="text"
+                    placeholder="Email" autofocus> 
+                    
+                    <br><br>
+
+                <input id="in_senha" name="senhaUsuario" class="in_modal" type="password" placeholder="Senha"> 
+                
+                    <br><br>
+
+                <input type="submit" class="entrar" id="btn_entrar" value="Login"> 
+
+                <a href="">Esqueci a senha</a> <br> <br>
+
+            </form>
+
         </div>
     </div>
-    <!--header fim-->
 
-    <!--banner inicio-->
-    <div class="banner">
-        <div class="container">
-            <div class="texto">
-                <h1 class="titulo">
-                    Sua empresa merece o melhor - e somos nós!
-                </h1>
-                <h3>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </h3>
-            </div>
+    <section id="home">
+
+        <div id="containerSlider">
+
+
+
         </div>
-    </div>
-    <!--banner fim-->
 
-    <!--novidades e-mail inicio-->
-    <div class="novidades">
-        <div class="container">
-            <a href="cadastro.html">
-                <button type="submit">CADASTRAR-ME</button>
-            </a>
-        </div>
-    </div>
-    <!--novidades e-mail fim--> 
+    </section>
 
-    <!-- icones inicio -->
-    <div class="box">
-        <div class="container">
-            <div class="box-item">
-                <img src="img/missao.png">
-                <h3>Missão</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    <section id="calculator">
+
+        <div class="middleContent">
+
+            <div class="titulo">Calculadora para montagem de dieta</div>
+
+            <div class="conteudoFormulario">
+
+                <div class="formPart">
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Sexo*</span>
+                        <br>
+                        <input type="radio" id="in_sexo" name="genero" value="m" onchange="selectSexo()">
+                        Masculino
+                        <br>
+                        <input type="radio" id="in_sexo" name="genero" value="f" onchange="selectSexo()">
+                        Feminino
+
+                    </div>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Biotipo*</span>
+                        <br>
+                        <input type="radio" id="in_biotipo" name="biotipo" value="ecto" onchange="selectBiotipo()">
+                        Ectomorfo
+                        <br>
+                        <input type="radio" id="in_biotipo" name="biotipo" value="meso" onchange="selectBiotipo()">
+                        Mesomorfo
+                        <br>
+                        <input type="radio" id="in_biotipo" name="biotipo" value="endo" onchange="selectBiotipo()">
+                        Endomorfo
+
+                    </div>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Objetivo*</span>
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="perder" onchange="selectObjetivo()">
+                        Perder Peso
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="manter" onchange="selectObjetivo()">
+                        Manter Peso
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="ganhar" onchange="selectObjetivo()">
+                        Ganhar Peso
+
+                    </div>
+
+                </div>
+
+                <div class="formPart" id="FormPt2">
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Idade*</span>
+                        <br>
+                        <input type="number" id="in_idade" class="inpt" name="idade" min="1" max="130"
+                            onkeyup="setIdade()" required>
+
+                    </div>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Altura(cm)*</span>
+                        <br>
+                        <input type="number" id="in_altura" class="inpt" name="altura" min="1" max="300"
+                            onkeyup="setAltura()" required>
+
+                    </div>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Peso(kg)*</span>
+                        <br>
+                        <input type="number" id="in_peso" class="inpt" name="peso" min="1" max="250" onkeyup="setPeso()"
+                            required>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="box-item">
-                <img src="img/valores.png">
-                <h3>Valores</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-            <div class="box-item">
-                <img src="img/visao.png">
-                <h3>Visão</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-        </div>
-    </div>
-    <!-- icones fim -->
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com <i class="far fa-heart"></i> por um aluno BandTec &COPY; 2021</h4>
         </div>
-    </div>
-    <!--footer fim-->
 
-    
+        <div class="asideContent">
+
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora">Taxa Metabólica Basal(TMB)</span>
+                <br>
+                <input type="text" id="in_tmb" class="inpt" name="tmb" placeholder="Kcal" disabled>
+                <br>
+                <span class="txtDesc">Calorias que seu corpo gasta em descanso.</span>
+
+            </div>
+            <br>
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora">Tempo do treino(minutos)*</span>
+                <br>
+                <input type="number" id="in_tempoTreino" class="inpt" name="tptreino" min="1" max="300"
+                    onkeyup="setTempoTreino()" required>
+
+            </div>
+            <br>
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora">Gasto Calórico com Atividade Física</span>
+                <br>
+                <input type="text" id="in_gastoCalorico" class="inpt" name="tmb" placeholder="Kcal" disabled>
+                <br>
+                <span class="txtDesc">Calorias que seu corpo gasta em descanso somados com o treino.</span>
+
+            </div>
+
+            <br>
+            <div class="topicoFormularioCalculadoraR">
+
+                <span class="txtFormularioCalculadora" id="consumir">Consumir</span>
+                <br>
+                <input type="text" id="in_deficit" class="inpt" name="deficit" placeholder="Kcal" disabled>
+
+            </div>
+
+            <br>
+            <div class="macros">
+
+                <div class="macro">
+                    <span class="descMacro">Proteína</span>
+                    <br>
+                    <span class="gMacro" id="gMacroP"></span>
+                </div>
+
+                <div class="macro">
+                    <span class="descMacro">Gordura</span>
+                    <br>
+                    <span class="gMacro" id="gMacroG"></span>
+                </div>
+
+                <div class="macro">
+                    <span class="descMacro">Carboidrato</span>
+                    <br>
+                    <span class="gMacro" id="gMacroC"></span>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <section id="cadastro">
+
+        <div class="div_esquerda">
+
+            <img class="imgDivEsquerda" src="https://image.flaticon.com/icons/png/512/1000/1000008.png" alt="">
+
+            <div class="textDivEsquerda">
+                <br>
+                Adicione os exercícios praticados em seu treino, gerencie suas cargas, evolua constantemente!
+                <br><br>
+                Observe seu progresso de forma visual com gráficos.
+
+            </div>
+
+        </div>
+
+        <div class="div_meio">
+
+            <h1>Crie a sua Conta Evolution</h1>
+
+            <div class="formulario">
+
+                <br><br>
+                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
+
+                    <input type="text" id="nome_usuario" name="nome" class="inpt_cadastro" placeholder="Nome completo"
+                        onkeyup="validaNome()">
+
+                    <input type="date" id="data_nascto" name="dataNascto" class="inpt_cadastro">
+
+                    <br><br>
+
+                    &nbsp;<span class="descSexo">Sexo*</span>
+                    <input type="radio" id="in_sexoC" name="sexo" value="m">
+                    <span class="descSexo">Masculino</span>
+                    <input type="radio" id="in_sexoC" name="sexo" value="f">
+                    <span class="descSexo">Feminino</span>
+                    
+                    <br><br>
+                    
+                    <input type="text" id="email_usuario" name="email" class="inpt_cadastro" placeholder="Email"
+                        onkeyup="validaEmail()">
+
+                    <br><br>
+
+                    <input type="password" id="senha_usuario" name="senha" class="inpt_senha_cadastro"
+                        placeholder="Senha" onkeyup="validaSenha()">
+
+                    <input type="password" id="validaSenha_usuario" class="inpt_senha_cadastro"
+                        placeholder="Confirmar senha" onkeyup="validaSenha2()">
+
+                    <input type="submit" id="btn_cadastro" class="button_cadastro" value="Cadastrar">
+
+                </form>
+
+                <div class="alerta" id="sucessoC">
+                    <img src="IMGS/sucesso.png" alt="">
+                    <p>Cadastrado!</p>
+                </div>
+
+                <div class="alerta" id="falhaC">
+                    <img src="IMGS/warning.png" alt="">
+                    <p id="erro">Falha ao cadastrar,<br> verifique os campos</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="div_direita">
+
+            <img class="imgDivDireita" src="https://img.icons8.com/ios/452/industrial-scales.png" alt="">
+
+            <div class="textDivDireita">
+
+                <br>
+                Anote suas medidas corporais, tenha acesso a referenciais a partir da relação do seu
+                percentual de gordura e massa magra, controle seus macro nutrientes e dieta
+                <br><br>
+                Tenha acesso a gráficos de evoluções do seu corpo, evolução de medidas, peso e
+                percentual de gordura
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
 </body>
 
 </html>

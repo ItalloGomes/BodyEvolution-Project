@@ -63,10 +63,14 @@ function validaFormulario() {
 
 }
 
-function limpaFormulario() {
-    nome_funcionario.value = "";
-    sel_empresa.value = "";
-    email_institucional_funcionario.value = "";
-    senha_funcionario.value = "";
-    verificaSenha_funcionario.value = "";
+function limpaFormularioCadastro() {
+    nome_usuario.value = "";
+    email_usuario.value = "";
+    senha_usuario.value = "";
+    validaSenha_usuario.value = "";
+}
+
+function limpaFormularioLogin() {
+    in_email.value = "";
+    in_senha.value = "";
 }

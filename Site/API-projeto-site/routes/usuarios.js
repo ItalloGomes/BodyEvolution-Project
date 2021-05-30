@@ -9,10 +9,10 @@ let sessoes = [];
 router.post('/autenticar', function(req, res, next) {
 	console.log('Recuperando usuário por login e senha');
 
-	var login_backend = req.body.login_html; // depois de .body, use o nome (name) do campo em seu formulário de login
-	var senha = req.body.senha; // depois de .body, use o nome (name) do campo em seu formulário de login	
+	var email = req.body.emailUsuario; // depois de .body, use o nome (name) do campo em seu formulário de login
+	var senha = req.body.senhaUsuario; // depois de .body, use o nome (name) do campo em seu formulário de login	
 	
-	let instrucaoSql = `select * from usuario_bd where login_bd='${login_backend}' and senha='${senha}'`;
+	let instrucaoSql = `select * from tbUsuario where emailUsuario='${email}' and senhaUsuario='${senha}'`;
 	console.log(instrucaoSql);
 
 	sequelize.query(instrucaoSql, {
@@ -21,9 +21,11 @@ router.post('/autenticar', function(req, res, next) {
 		console.log(`Encontrados: ${resultado.length}`);
 
 		if (resultado.length == 1) {
-			sessoes.push(resultado[0].dataValues.login_backend);
+
+			sessoes.push(resultado[0].dataValues.emailUsuario);
 			console.log('sessoes: ',sessoes);
 			res.json(resultado[0]);
+
 		} else if (resultado.length == 0) {
 			res.status(403).send('Login e/ou senha inválido(s)');
 		} else {
@@ -42,7 +44,9 @@ router.post('/cadastrar', function(req, res, next) {
 	
 	Usuario.create({
 		nome : req.body.nome,
-		login_backend : req.body.login_html,
+		dataNascto : req.body.dataNascto,
+		sexo : req.body.sexo,
+		email : req.body.email,
 		senha: req.body.senha
 	}).then(resultado => {
 		console.log(`Registro criado: ${resultado}`)
@@ -55,20 +59,20 @@ router.post('/cadastrar', function(req, res, next) {
 
 
 /* Verificação de usuário */
-router.get('/sessao/:login', function(req, res, next) {
-	let login_backend = req.params.login_html;
-	console.log(`Verificando se o usuário ${login_backend} tem sessão`);
+router.get('/sessao/:email', function(req, res, next) {
+	let email = req.params.email;
+	console.log(`Verificando se o usuário ${email} tem sessão`);
 	
 	let tem_sessao = false;
 	for (let u=0; u<sessoes.length; u++) {
-		if (sessoes[u] == login_backend) {
+		if (sessoes[u] == email) {
 			tem_sessao = true;
 			break;
 		}
 	}
 
 	if (tem_sessao) {
-		let mensagem = `Usuário ${login_backend} possui sessão ativa!`;
+		let mensagem = `Usuário ${email} possui sessão ativa!`;
 		console.log(mensagem);
 		res.send(mensagem);
 	} else {
@@ -79,17 +83,17 @@ router.get('/sessao/:login', function(req, res, next) {
 
 
 /* Logoff de usuário */
-router.get('/sair/:login', function(req, res, next) {
-	let login_backend = req.params.login_html;
-	console.log(`Finalizando a sessão do usuário ${login_backend}`);
+router.get('/sair/:email', function(req, res, next) {
+	let email = req.params.email;
+	console.log(`Finalizando a sessão do usuário ${email}`);
 	let nova_sessoes = []
 	for (let u=0; u<sessoes.length; u++) {
-		if (sessoes[u] != login_backend) {
+		if (sessoes[u] != email) {
 			nova_sessoes.push(sessoes[u]);
 		}
 	}
 	sessoes = nova_sessoes;
-	res.send(`Sessão do usuário ${login_backend} finalizada com sucesso!`);
+	res.send(`Sessão do usuário ${email} finalizada com sucesso!`);
 });
 
 
