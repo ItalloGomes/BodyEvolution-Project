@@ -101,7 +101,7 @@ function tmbHomem() {
 
     let total = (equacaoGastoCalorico + equacaoTMBH);
 
-    in_gastoCalorico.value = `${total.toFixed(2)} Kcal`;
+    in_gastoCalorico.value = total.toFixed(2);
 
 // MacroNutrientes
 

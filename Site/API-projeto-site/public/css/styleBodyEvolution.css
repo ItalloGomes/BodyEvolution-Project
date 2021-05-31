@@ -426,12 +426,19 @@ header nav li:hover{
     background-color: brown;
 
     border: none;
+    outline: none;
 }
 
 .grama{
     position: relative;
     top: 3.7vh;
     left: -1.5vw;
+}
+
+.kcal{
+    position: relative;
+    top: 0.2vh;
+    left: -7vw;
 }
 
 .deficit{

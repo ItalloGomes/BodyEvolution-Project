@@ -12,15 +12,9 @@ router.get('/ultimosMacros/:idUsuario', function(req, res, next) {
 
 	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 	
-	let instrucaoSql = `select 
-        proteinaMacros
-        ,gorduraMacros
-        ,carboMacros
-        ,taxaMetabolicaMacros 
-        
-        from tbMacros
-		where fkUsuario = ${idUsuario}
-		order by idMacros desc limit ${limite_linhas}`;
+	let instrucaoSql = `select * from tbMacros
+						where fkUsuario = ${idUsuario}
+						order by idMacros desc limit ${limite_linhas}`;
         
 	sequelize.query(instrucaoSql, {
 		model: Macro,
