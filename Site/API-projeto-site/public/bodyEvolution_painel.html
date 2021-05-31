@@ -34,6 +34,12 @@
 
         <span id="nome_usuario_header"></span>
 
+        <div class="referencialBF">
+
+
+
+        </div>
+
     </aside>
 
     <section id="estatisticas">
@@ -55,11 +61,15 @@
             <span class="gMacro" id="gMacroC"></span>
         </div>
 
+        <div class="CaloriasParaConsumir">
+            <span class="descMacro">Consumir: </span>
+            <span class="gMacro" id="Kcal_id"></span>
+        </div>
+        
         <br>
 
-        <div class="central_Dieta">
-    </section>
-
+        <div class="central_Dieta"></div>
+    
     </section>
 
 
@@ -82,13 +92,25 @@
                 if (resposta.ok) {
                     resposta.json().then(function (resposta) {
 
-                        // console.log(new Object(resposta[0]));
+                        console.log(new Object(resposta[0]));
 
                         var dadosMacros = new Object(resposta[0]);
 
-                        gMacroP.innerHTML = `${dadosMacros.proteina}g`;
-                        gMacroG.innerHTML = `${dadosMacros.gordura}g`;
-                        gMacroC.innerHTML = `${dadosMacros.carbo}g`;
+                        if(dadosMacros.proteina){
+                            
+                            gMacroP.innerHTML = `${dadosMacros.proteina}g`;
+                            gMacroG.innerHTML = `${dadosMacros.gordura}g`;
+                            gMacroC.innerHTML = `${dadosMacros.carbo}g`;
+    
+                            Kcal_id.innerHTML = `${dadosMacros.consumoObjetivo}Kcal`;
+                        
+                        }else{
+                            gMacroP.innerHTML = `g`;
+                            gMacroG.innerHTML = `g`;
+                            gMacroC.innerHTML = `g`;
+    
+                            Kcal_id.innerHTML = `Kcal`;
+                        }
 
                     });
                 } else {

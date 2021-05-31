@@ -19,7 +19,7 @@ create table tbMedidaUsuario(
 	idMedidaUsuario int primary key auto_increment
     ,pesoMedidaUsuario float
     ,alturaMedidaUsuario int
-    ,gorduraCorporalMedidaUsuario float
+    -- ,gorduraCorporalMedidaUsuario float
     ,pescocoMedidaUsuario float
     ,cinturaEscapularMedidaUsuario float
     ,bracoDireitoMedidaUsuario float
@@ -76,7 +76,9 @@ desc tbExercicio;
 
 select * from tbUsuario;
 select * from tbMacros;
+select * from tbMedidaUsuario;
 select * from tbExercicio;
+
 
 /* INSERTS */
 

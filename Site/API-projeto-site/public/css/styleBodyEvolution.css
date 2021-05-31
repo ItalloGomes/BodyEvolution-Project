@@ -3,6 +3,9 @@ body{
     margin: 0;
 
     overflow-x: hidden;
+
+    background-image: url('../IMGS/back_evolution.jpg');
+    background-size: cover;
 }
 
 body::-webkit-scrollbar {
@@ -125,7 +128,7 @@ header nav li:hover{
     float: left;
     position: relative;
 
-    height: 65vh;
+    height: 59vh;
     width: 20vw;
 
     top: 25vh;
@@ -147,6 +150,18 @@ header nav li:hover{
     color: white;
 }
 
+.referencialBF{
+    height: 50vh;
+    width: 20vw;
+
+    margin-top: 3vh;
+
+    background-color: #ff0000;
+}
+
+
+/*  Seção do meio  */
+
 #estatisticas{
     position: relative;
 
@@ -163,14 +178,37 @@ header nav li:hover{
     position: relative;
     float: left;
 
-    left: -22vw;
+    left: -21vw;
 
     height: 100px;
     width: 100px;
 
+    text-align: center;
+
+    color: #d8d8d8;
+
     border-radius: 50%;
 
     margin-right: 2vw;
+
+    background-color: brown;
+}
+
+.CaloriasParaConsumir{
+    position: relative;
+    float: right;
+
+    top: 2vh;
+    left: -2vw;
+
+    height: 80px;
+    width: 180px;
+
+    border-radius: 5px;
+
+    text-align: center;
+
+    color: #d8d8d8;
 
     background-color: brown;
 }
@@ -194,33 +232,243 @@ header nav li:hover{
 
 
 
+/* Cadastro de novas medidas */
 
+.containerCadastro{
+    position: relative;
 
+    height: 75vh;
+    width: 80%;
 
+    top: 22vh;
 
+    margin: 0 auto;
 
+    border-radius: 5px;
 
+    background-color: #505050;
+}
 
+.tituloMedidas{
+    width: 100%;
 
+    text-align: center;
 
+    color: #e6e6e6;
+    font-size: 2em;
+    font-weight: bold;
+}
 
+.corpoHumano{
+    position: relative;
 
+    height: 60vh;
+    width: 20vw;
 
+    top: 3vh;
+    left: 24.7vw;
 
+    background-image: url('../IMGS/corpoHumano.png');
+    background-size: cover;
 
+}
 
+.topicoFormularioMedida{
+    position: relative;
+    
+    top: -48vh;
+    left: 3em;
 
+    height: auto;
+    width: 30%;
+}
 
+.txtFormularioMedida{
+    font-size: 0.9em;
+    color: #c9c9c9;
+    font-weight: bold;
+}
 
+.inptMedida{
+    width: 11vw;
 
+    background-color: #e2e2e200;
 
+    padding: 10px;
+    
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
 
+    color: #c9c9c9;
 
+    outline: none;
+}
 
+.topicoCorpoFormularioMedida{
+    position: absolute;
 
+    height: auto;
+    width: auto;
 
+    z-index: 100;
+}
 
+#pescoco{
+    top: 11.3vh;
+    left: 23em;
+}
 
+#cinturaEscap{
+    top: 9vh;
+    left: 36.2em;
+}
+
+#cinturaEscap .txtFormularioMedida{
+    text-align: right;
+    float: right;
+}
+
+#cinturaEscap input{
+    width: 5vw;
+    text-align: right;
+}
+
+#peito{
+    top: 20.3vh;
+    left: 23em;
+}
+
+#peito input{
+    width: 4vw;
+}
+
+#peito{
+    top: 20.3vh;
+    left: 23em;
+}
+
+#bracoD{
+    top: 25vh;
+    left: 19.2em;
+}
+
+#bracoD input{
+    width: 3vw;
+}
+
+#bracoE{
+    top: 25vh;
+    left: 36.5em;
+}
+
+#bracoE .txtFormularioMedida{
+    text-align: right;
+    float: right;
+}
+
+#bracoE input{
+    width: 3vw;
+    text-align: right;
+}
+
+#cintura{
+    top: 29vh;
+    left: 33.5em;
+}
+
+#cintura .txtFormularioMedida{
+    text-align: right;
+    float: right;
+}
+
+#cintura input{
+    text-align: right;
+}
+
+#quadril{
+    top: 33vh;
+    left: 21em;
+}
+
+#quadril input{
+    width: 7vw;
+}
+
+#coxaD{
+    top: 41vh;
+    left: 19.8em;
+}
+
+#coxaD input{
+    width: 5vw;
+}
+
+#coxaE{
+    top: 41vh;
+    left: 34.5em;
+}
+
+#coxaE .txtFormularioMedida{
+    text-align: right;
+    float: right;
+}
+
+#coxaE input{
+    width: 5vw;
+    text-align: right;
+}
+
+#pantuD{
+    top: 50vh;
+    left: 18.8em;
+}
+
+#pantuD input{
+    width: 3vw;
+}
+
+#pantuE{
+    top: 50vh;
+    left: 34.5em;
+}
+
+#pantuE .txtFormularioMedida{
+    text-align: right;
+    float: right;
+}
+
+#pantuE input{
+    width: 3vw;
+    text-align: right;
+}
+
+.button_addMedidas{
+    position: absolute;
+
+    height: 7vh;
+    width: 11.3vw;
+
+    top: 60vh;
+    right: 5vw; 
+
+    border-radius: 5px;
+    border: 1px solid;
+
+    font-size: 1em;
+
+    cursor: pointer;
+    transition: .5s;
+
+    color: white;
+
+    background-color: brown;
+}
+
+.button_addMedidas:hover{
+    background-color: rgb(117, 25, 25);
+    
+    transform: scale(1.2);
+}
 
 
 

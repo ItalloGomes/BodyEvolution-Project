@@ -23,11 +23,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        gorduraCorporal: {
-            field: 'gorduraCorporalMedidaUsuario',
-            type: DataTypes.FLOAT,
-            allowNull: true
-        },
+        // gorduraCorporal: {
+        //     field: 'gorduraCorporalMedidaUsuario',
+        //     type: DataTypes.FLOAT,
+        //     allowNull: true
+        // },
         pescoco: {
             field: 'pescocoMedidaUsuario',
             type: DataTypes.FLOAT,
@@ -91,7 +91,7 @@ module.exports = (sequelize, DataTypes) => {
         fkUsuario: {
             field: 'fkUsuario',
             type: DataTypes.INTEGER,
-            allowNull: true
+            allowNull: false
         } 
 	}, 
 	{

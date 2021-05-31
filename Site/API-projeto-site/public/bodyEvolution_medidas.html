@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="IMGS/logo's/logo_transparent.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre suas medidas</title>
+
+    <script src="JS/funcoes.js"></script>
+    <link rel="stylesheet" href="CSS/styleBodyEvolution.css">
+
+</head>
+
+<body style="overflow: hidden;">
+
+    <header>
+
+        <img src="IMGS/logo's/logo_transparent.png" alt="">
+
+        <nav>
+            <li><a href="bodyEvolution_painel.html">Painel</a></li>
+            <li><a href="bodyEvolution_dieta.html">Dieta</a></li>
+            <li>Medidas</li>
+            <li><a href="bodyEvolution_exercicios.html">Exercicios</a></li>
+            <button class="logout" id="logout" onclick="logoff()">Sair</button>
+        </nav>
+
+
+    </header>
+
+    <section id="cadastroMedidas">
+
+        <div class="containerCadastro">
+
+            <div class="tituloMedidas">Adicione suas novas medidas</div>
+
+            <div class="conteudoFormulario">
+
+                <form id="form_cadastroMedidas" method="POST" onsubmit="return cadastrarMedidas()">
+
+                    <input type="text" name="id" id="idUser" style="display: none;">
+
+                    <div class="topicoCorpoFormularioMedida" id="pescoco">
+                        <span class="txtFormularioMedida">Pescoco(cm)*</span>
+                        <br>
+                        <input type="text" id="in_pescoco" class="inptMedida" name="pescoco" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="cinturaEscap">
+                        <span class="txtFormularioMedida">Cintura<br>Escapular<br>(cm)*</span>
+                        <br>
+                        <input type="text" id="in_cinturaE" class="inptMedida" name="cintEscap" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="peito">
+                        <span class="txtFormularioMedida">Peito(cm)*</span>
+                        
+                        <input type="text" id="in_peito" class="inptMedida" name="peito" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="bracoD">
+                        <span class="txtFormularioMedida">Braco Direito(cm)*</span>
+                        
+                        <input type="text" id="in_bracoD" class="inptMedida" name="BracoD" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="bracoE">
+                        <span class="txtFormularioMedida">Braco Esquerdo(cm)*</span>
+                        
+                        <input type="text" id="in_bracoE" class="inptMedida" name="BracoE" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="cintura">
+                        <span class="txtFormularioMedida">Cintura(cm)*</span>
+                        
+                        <input type="text" id="in_cintura" class="inptMedida" name="cintura" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="quadril">
+                        <span class="txtFormularioMedida">Quadril(cm)*</span>
+                        
+                        <input type="text" id="in_quadril" class="inptMedida" name="quadril" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="coxaD">
+                        <span class="txtFormularioMedida">Coxa Direita(cm)*</span>
+                        
+                        <input type="text" id="in_coxaD" class="inptMedida" name="coxaD" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="coxaE">
+                        <span class="txtFormularioMedida">Coxa Esquerda(cm)*</span>
+                        
+                        <input type="text" id="in_coxaE" class="inptMedida" name="coxaE" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="pantuD">
+                        <span class="txtFormularioMedida">Panturrilha Direita(cm)*</span>
+                        
+                        <input type="text" id="in_pantuD" class="inptMedida" name="pantuD" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="topicoCorpoFormularioMedida" id="pantuE">
+                        <span class="txtFormularioMedida">Panturrilha Esquerda(cm)*</span>
+                        
+                        <input type="text" id="in_pantuE" class="inptMedida" name="pantuE" maxlength="4" 
+                        required autocomplete="off">
+                    </div>
+
+                    <div class="corpoHumano"></div>
+
+                    </div>
+
+                    <div class="topicoFormularioMedida">
+
+                        <span class="txtFormularioMedida">Peso(kg)*</span>
+                        <br>
+                        <input type="number" id="in_peso" class="inptMedida" name="peso" min="1" max="250" required>
+
+                    </div>
+
+                    <br>
+
+                    <div class="topicoFormularioMedida">
+
+                        <span class="txtFormularioMedida">Altura(cm)*</span>
+                        <br>
+                        <input type="number" id="in_altura" class="inptMedida" name="altura" min="1" max="300" required>
+
+                    </div>
+
+                    <br>
+
+                    <!-- <div class="topicoFormularioMedida">
+
+                        <span class="txtFormularioMedida">Percentual<br>de Gordura(BF)</span>
+                        <br>
+                        <input type="text" id="in_bf" class="inptMedida" name="bf" readonly>
+
+                    </div> -->
+
+                    <input type="submit" class="button_addMedidas" value="Adicionar">
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    
+
+</body>
+
+</html>
+
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    idUser.value = idUsuario;
+
+    function cadastrarMedidas(){
+    
+        var formularioMedida = new URLSearchParams(new FormData(form_cadastroMedidas));
+
+        fetch('/medidas/cadastrarMedidas',{
+            method: "POST",
+            body: formularioMedida
+        }).then(function (response) {
+            if (response.ok) {
+
+                window.location.href = 'bodyEvolution_painel.html';
+
+            } else {
+                response.text().then(function (resposta) {
+                    console.log("Erro de cadastro: " + resposta);
+                });
+
+            }
+        });
+
+        return false;
+    
+    }
+
+
+</script>
