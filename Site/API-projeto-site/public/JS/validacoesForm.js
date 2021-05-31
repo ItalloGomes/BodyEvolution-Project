@@ -10,6 +10,21 @@ function validaNome() {
     }
 }
 
+function validaDataNascto(){
+
+    var getYearSet = new Date(data_nascto.value).getFullYear();
+    var anoAtual = new Date().getFullYear();
+
+    var idade = (anoAtual - getYearSet);
+
+    if(idade < 13){
+        document.querySelector("#data_nascto").style.borderColor = "red"
+    } else {
+        document.querySelector("#data_nascto").style.borderColor = "green"
+    }
+
+}
+
 function validaEmail() {
     var email = email_usuario.value;
 
@@ -43,11 +58,13 @@ function validaSenha2() {
 
 function validaFormulario() {
     validaNome();
+    validaDataNascto()
     validaEmail();
     validaSenha();
     validaSenha2();
 
-    if (document.querySelector("#nome_usuario").style.borderColor = "green" &&
+    if (document.querySelector("#nome_usuario").style.borderColor == "green" &&
+        document.querySelector("#data_nascto").style.borderColor == "green" &&
         document.querySelector("#email_usuario").style.borderColor == "green" &&
         document.querySelector("#validaSenha_usuario").style.borderColor == "green") {
 

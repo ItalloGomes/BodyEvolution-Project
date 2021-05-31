@@ -1,37 +1,19 @@
 /* Calculadora de dieta */
 
-var sexo;
-var biotipo;
+var sexo = sexoUsuario;
+var biotipo = biotipoUsuario;
 var objetivo;
 
-var idade = 0;
+var anoAtual = new Date().getFullYear();
+var anoNasctoUsuario = new Date(dataNasctoUsuario).getFullYear(); 
+
+var idade = (anoAtual - anoNasctoUsuario);
+
 var altura = 0;
 var peso = 0;
 
 var tmb = 0;
 var tempoTreino = 0;
-
-function selectSexo() {
-    sexo = document.querySelector('input[name="genero"]:checked').value;
-    console.log(sexo);
-
-    if (sexo == "m") {
-        tmbHomem();
-    } else {
-        tmbMulher();
-    }
-}
-
-function selectBiotipo() {
-    biotipo = document.querySelector('input[name="biotipo"]:checked').value;
-    console.log(biotipo);
-
-    if (sexo == "m") {
-        tmbHomem();
-    } else {
-        tmbMulher();
-    }
-}
 
 function selectObjetivo() {
     objetivo = document.querySelector('input[name="objetivo"]:checked').value;
@@ -42,26 +24,6 @@ function selectObjetivo() {
     } else {
         tmbMulher();
     }
-}
-
-
-function setIdade() {
-
-    idade = Number(document.getElementById('in_idade').value);
-
-    if (sexo == "m" || sexo == "f") {
-
-        if (sexo == "m") {
-            tmbHomem();
-        } else {
-            tmbMulher();
-        }
-
-    } else {
-        tmbHomem();
-    }
-
-    console.log(idade);
 }
 
 function setAltura() {
@@ -129,7 +91,7 @@ function tmbHomem() {
 
     console.log(equacaoTMBH)
 
-    in_tmb.value = `${equacaoTMBH.toFixed(2)} Kcal`;
+    in_tmb.value = equacaoTMBH.toFixed(2);
 
     // Pegando a duracao do treino
     let duracaoTreino = Number(document.getElementById('in_tempoTreino').value);
@@ -160,9 +122,9 @@ function tmbHomem() {
 
     }
 
-    gMacroP.innerHTML = `${proteina.toFixed(1)}g`;
-    gMacroG.innerHTML = `${gordura.toFixed(1)}g`;
-    gMacroC.innerHTML = `${carbo.toFixed(1)}g`;
+    gMacroP.value = proteina.toFixed(1);
+    gMacroG.value = gordura.toFixed(1);
+    gMacroC.value = carbo.toFixed(1);
 
 // Consumir
 
@@ -170,7 +132,7 @@ function tmbHomem() {
 
     consumir.innerHTML = `Para ${objetivo} peso consuma`;
 
-    in_deficit.value = `${kcalDeficit.toFixed(2)} Kcal`;
+    in_deficit.value = kcalDeficit.toFixed(2);
 
 }
 
@@ -181,7 +143,7 @@ function tmbMulher() {
 
     console.log(equacaoTMBF);
 
-    in_tmb.value = `${equacaoTMBF.toFixed(2)} Kcal`;
+    in_tmb.value = equacaoTMBF.toFixed(2);
 
     // Pegando a duracao do treino
     let duracaoTreino = Number(document.getElementById('in_tempoTreino').value);
@@ -191,7 +153,7 @@ function tmbMulher() {
 
     let total = (equacaoGastoCalorico + equacaoTMBF);
 
-    in_gastoCalorico.value = `${total.toFixed(2)} Kcal`;
+    in_gastoCalorico.value = total.toFixed(2);
 
 // MacroNutrientes
 
@@ -212,9 +174,9 @@ function tmbMulher() {
 
     }
 
-    gMacroP.innerHTML = `${proteina.toFixed(1)}g`;
-    gMacroG.innerHTML = `${gordura.toFixed(1)}g`;
-    gMacroC.innerHTML = `${carbo.toFixed(1)}g`;
+    gMacroP.value = proteina.toFixed(1);
+    gMacroG.value = gordura.toFixed(1);
+    gMacroC.value = carbo.toFixed(1);
 
 // Consumir
 
@@ -222,6 +184,6 @@ function tmbMulher() {
 
     consumir.innerHTML = `Para ${objetivo} peso consuma`;
 
-    in_deficit.value = `${kcalDeficit.toFixed(2)} Kcal`;
+    in_deficit.value = kcalDeficit.toFixed(2);
 
 }

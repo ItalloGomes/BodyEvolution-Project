@@ -10,10 +10,14 @@ function entrar() {
 
             resposta.json().then(json => {
 
-                sessionStorage.login_usuario_meuapp = json.emailUsuario;
+                sessionStorage.id_usuario_meuapp = json.idUsuario;
                 sessionStorage.nome_usuario_meuapp = json.nomeUsuario;
+                sessionStorage.sexo_usuario_meuapp = json.sexoUsuario;
+                sessionStorage.biotipo_usuario_meuapp = json.biotipoUsuario;
+                sessionStorage.dataNasctoUsuario_usuario_meuapp = json.dataNasctoUsuario;
+                sessionStorage.login_usuario_meuapp = json.emailUsuario;
 
-                window.location.href = 'bodyEvolution_Home.html';
+                window.location.href = 'bodyEvolution_Painel.html';
 
                 limpaFormularioLogin();
             });

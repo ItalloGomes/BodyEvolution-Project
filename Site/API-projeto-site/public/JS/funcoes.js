@@ -1,18 +1,19 @@
-let login_usuario;
-let nome_usuario;
+const idUsuario = sessionStorage.id_usuario_meuapp;
+const nomeUsuario = sessionStorage.nome_usuario_meuapp;
+const sexoUsuario = sessionStorage.sexo_usuario_meuapp;
+const biotipoUsuario = sessionStorage.biotipo_usuario_meuapp;
+const dataNasctoUsuario = sessionStorage.dataNasctoUsuario_usuario_meuapp;
+const loginUsuario = sessionStorage.login_usuario_meuapp;
 
 function redirecionar_login() {
     window.location.href = 'index.html';
 }
 
 function verificar_autenticacao() {
-    login_usuario = sessionStorage.login_usuario_meuapp;
-    nome_usuario = sessionStorage.nome_usuario_meuapp;
-    
-    if (login_usuario == undefined)  {
+
+    if (loginUsuario == undefined)  {
         redirecionar_login();
     } else {
-        nome_usuario_header.innerHTML = `Bem vindo(a), ${nome_usuario}!`;
         validar_sessao();
     }
     
@@ -25,7 +26,7 @@ function logoff() {
 }
 
 function validar_sessao() {
-    fetch(`/usuarios/sessao/${login_usuario}`, {cache:'no-store'})
+    fetch(`/usuarios/sessao/${loginUsuario}`, {cache:'no-store'})
     .then(resposta => {
         if (resposta.ok) {
             resposta.text().then(texto => {
@@ -39,5 +40,5 @@ function validar_sessao() {
 }
 
 function finalizar_sessao() {
-    fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
+    fetch(`/usuarios/sair/${loginUsuario}`, {cache:'no-store'}); 
 }

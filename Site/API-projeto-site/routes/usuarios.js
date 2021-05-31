@@ -24,6 +24,7 @@ router.post('/autenticar', function(req, res, next) {
 
 			sessoes.push(resultado[0].dataValues.emailUsuario);
 			console.log('sessoes: ',sessoes);
+
 			res.json(resultado[0]);
 
 		} else if (resultado.length == 0) {
@@ -46,6 +47,7 @@ router.post('/cadastrar', function(req, res, next) {
 		nome : req.body.nome,
 		dataNascto : req.body.dataNascto,
 		sexo : req.body.sexo,
+		biotipo : req.body.biotipo,
 		email : req.body.email,
 		senha: req.body.senha
 	}).then(resultado => {

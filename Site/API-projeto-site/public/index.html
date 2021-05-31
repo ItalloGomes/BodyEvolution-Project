@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="shortcut icon" href="../IMGS/logo's/logo_transparent.png" type="image/x-icon">
+    <link rel="shortcut icon" href="IMGS/logo's/logo_transparent.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -257,34 +257,45 @@
 
             <div class="formulario">
 
-                <br><br>
+                <br>
                 <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
 
                     <input type="text" id="nome_usuario" name="nome" class="inpt_cadastro" placeholder="Nome completo"
-                        onkeyup="validaNome()">
+                        onkeyup="validaNome()" required>
 
-                    <input type="date" id="data_nascto" name="dataNascto" class="inpt_cadastro">
+                    <input type="date" id="data_nascto" name="dataNascto" class="inpt_cadastro" 
+                        onchange="validaDataNascto()" required>
 
                     <br><br>
 
                     &nbsp;<span class="descSexo">Sexo*</span>
-                    <input type="radio" id="in_sexoC" name="sexo" value="m">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="in_sexoC" name="sexo" value="m">
                     <span class="descSexo">Masculino</span>
-                    <input type="radio" id="in_sexoC" name="sexo" value="f">
+                    &nbsp;<input type="radio" id="in_sexoC" name="sexo" value="f">
                     <span class="descSexo">Feminino</span>
+                    
+                    <br><br>
+
+                    &nbsp;<span class="descSexo">Biotipo*</span>
+                    <input type="radio" id="in_biotipoC" name="biotipo" value="ecto">
+                    <span class="descSexo">Ectomorfo</span>
+                    <input type="radio" id="in_biotipoC" name="biotipo" value="meso">
+                    <span class="descSexo">Mesomorfo</span>
+                    <input type="radio" id="in_biotipoC" name="biotipo" value="endo">
+                    <span class="descSexo">Endomorfo</span>
                     
                     <br><br>
                     
                     <input type="text" id="email_usuario" name="email" class="inpt_cadastro" placeholder="Email"
-                        onkeyup="validaEmail()">
+                        onkeyup="validaEmail()" required>
 
                     <br><br>
 
                     <input type="password" id="senha_usuario" name="senha" class="inpt_senha_cadastro"
-                        placeholder="Senha" onkeyup="validaSenha()">
+                        placeholder="Senha" onkeyup="validaSenha()" required>
 
                     <input type="password" id="validaSenha_usuario" class="inpt_senha_cadastro"
-                        placeholder="Confirmar senha" onkeyup="validaSenha2()">
+                        placeholder="Confirmar senha" onkeyup="validaSenha2()" required>
 
                     <input type="submit" id="btn_cadastro" class="button_cadastro" value="Cadastrar">
 
@@ -297,7 +308,7 @@
 
                 <div class="alerta" id="falhaC">
                     <img src="IMGS/warning.png" alt="">
-                    <p id="erro">Falha ao cadastrar,<br> verifique os campos</p>
+                    <p id="erro">Falha ao cadastrar!</p>
                 </div>
 
             </div>

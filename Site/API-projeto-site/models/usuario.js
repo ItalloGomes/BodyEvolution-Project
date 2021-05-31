@@ -23,6 +23,11 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+		biotipo: {
+			field: 'biotipoUsuario',
+			type: DataTypes.STRING,
+			allowNull: true
+		},
 		dataNascto: {
 			field: 'dataNasctoUsuario',
 			type: DataTypes.DATE,

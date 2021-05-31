@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="shortcut icon" href="IMGS/logo's/logo_transparent.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +15,13 @@
 
     <header>
 
-        <a href="#home"><img src="IMGS/logo's/logo_transparent.png" alt=""></a>
+        <img src="IMGS/logo's/logo_transparent.png" alt="">
         
         <nav>
-            <li>Home</li>
-            <li>Progressões</li>
+            <li>Painel</li>
+            <li><a href="bodyEvolution_dieta.html">Dieta</a></li>
+            <li><a href="bodyEvolution_medidas.html">Medidas</a></li>
+            <li><a href="bodyEvolution_exercicios.html">Exercicios</a></li>
             <button class="logout" id="logout" onclick="logoff()">Sair</button>
         </nav>
 
@@ -52,6 +55,8 @@
     let usuario;
 
     verificar_autenticacao();
+
+    nome_usuario_header.innerHTML = `Bem vindo(a), ${nomeUsuario}!`;
 
 
 </script>

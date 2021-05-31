@@ -33,14 +33,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.FLOAT,
             allowNull: false
         },
+        consumoObjetivo: {
+            field: 'consumoObjetivoMacros',
+            type: DataTypes.FLOAT,
+            allowNull: false
+        },
         fkUsuario: {
             field: 'fkUsuario',
             type: DataTypes.INTEGER,
-            allowNull: true
+            foreignKey: true
         } 
     },
     {
-        tableName: 'tbMedidaUsuario', 
+        tableName: 'tbMacros', 
         freezeTableName: true, 
         underscored: true,
         timestamps: false,

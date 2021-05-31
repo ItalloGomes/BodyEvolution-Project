@@ -187,3 +187,271 @@ header nav li:hover{
 
     background-color: #505050;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*   medidas.html    */
+
+/*   SECTION -Calculadora-   */
+
+#calculator{
+    height: 100vh;
+    width: 100vw;
+
+    background-color: #ffffff;
+
+    background-image: url('../IMGS/back_calculator.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.middleContent{
+    float: left;
+    position: relative;
+
+    top: 25vh;
+    left: 5vw;
+    
+    height: auto;
+    width: 55vw;
+
+    padding: 5px 10px 20px 10px;
+
+    border-radius: 10px;
+
+    background-color: #e6e6e6e7;
+
+    transition: 0.3s;
+
+    box-shadow: 0em 0em 3em black;
+}
+
+.titulo{
+    width: 100%;
+
+    text-align: center;
+
+    color: #232323;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.conteudoFormulario{
+    height: 85%;
+    width: 100%;
+}
+
+.formPart{
+    float: left;
+    position: relative;
+
+    left: 0.2vw;
+
+    padding: 30px 10px 30px 10px;
+
+    margin-top: 1em;
+    margin-left: 0.5vw;
+
+    height: auto;
+    width: 94.5%;
+
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.topicoFormularioCalculadora{
+    position: relative;
+    float: left;
+
+    left: 4em;
+
+    height: auto;
+    width: 30%;
+}
+
+.txtFormularioCalculadora{
+    color: #232323;
+    font-weight: bold;
+}
+
+.inpt{
+    width: 10vw;
+
+    background-color: #d8d8d8e7;
+
+    padding: 10px;
+    
+    border: none;
+    border-bottom: 1px solid black;
+
+    outline: none;
+}
+
+.button_cadastro{
+    height: 7vh;
+    width: 11.3vw;
+
+    border-radius: 5px;
+    border: 1px solid;
+
+    font-size: 1em;
+
+    margin-left: 1vw;
+    margin-top: 1vh;
+
+    cursor: pointer;
+    transition: .5s;
+
+    color: white;
+
+    background-color: brown;
+}
+
+.button_cadastro:hover{
+    background-color: rgb(117, 25, 25);
+    
+    transform: scale(1.1);
+}
+
+.txtDesc{
+    font-size: 12px;
+
+    color: brown;
+}
+
+.asideContent{
+    float: left;
+    position: relative;
+
+    top: 21vh;
+    left: 9vw;
+    
+    height: 70vh;
+    width: 28vw;
+
+    padding: 20px 10px 20px 10px;
+    border-radius: 10px;
+
+    background-color: #e6e6e6e7;
+
+    transition: 0.3s;
+
+    box-shadow: 0em 0em 3em black;
+}
+
+.topicoFormularioCalculadoraR{
+    position: relative;
+
+    height: auto;
+    width: 100%;
+}
+
+.macros{
+    display: flex;
+
+    height: auto;
+    width: 100%;
+
+    justify-content: center;
+
+    margin: 0 auto;
+
+    color: #d8d8d8;
+}
+
+.macro{
+    float: left;
+
+    height: 95px;
+    width: 95px;
+
+    border-radius: 50%;
+
+    text-align: center;
+    margin: 3px;
+
+    background-color: brown;
+}
+
+.descMacro{
+    position: relative;
+    top: 25px;
+}
+
+.gMacro{
+    position: relative;
+    top: 25px;
+
+    width: 5vw;
+
+    text-align: center;
+    
+    color: #d8d8d8;
+    font-weight: bold;
+    
+    background-color: brown;
+
+    border: none;
+}
+
+.grama{
+    position: relative;
+    top: 3.7vh;
+    left: -1.5vw;
+}
+
+.deficit{
+    background-color: #ff0000;
+}
+
+#btn_cadastrar_Macros{
+    position: relative;
+
+    top: -5vh;
+    left: -1vw;
+
+    float: right;
+}
+
+
+
+
+
+
+
+
+

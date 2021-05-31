@@ -513,7 +513,7 @@ header nav li:hover{
 
     background-color: #000000ad;
 
-    border: 3px solid #0bccccad;
+    border: 3px solid brown;
     border-radius: 10px;
 }
 
@@ -527,7 +527,7 @@ header nav li:hover{
 
     padding: 10px;
 
-    border: 5px solid #0de4e4ad;
+    border: 5px solid brown;
     border-radius: 50%;
 }
 
@@ -563,7 +563,7 @@ header nav li:hover{
 
     background-color: #000000ad;
 
-    border: 3px solid #0bccccad;
+    border: 3px solid brown;
     border-radius: 10px;
 }
 
@@ -639,28 +639,32 @@ header nav li:hover{
 }
 
 .alerta img{
-    width: 50px;
+    width: 40px;
 }
 
 .alerta p{
     position: relative;
 
     top: -3vh;
-    left: -1vw;
+    left: -1.5vw;
 
     font-size: 1rem;
 }
 
 #sucessoC{
-    top: 57vh;
-    left: 35.5vw;
+    top: 60vh;
+    left: 36vw;
     display: none;
 }
 
 #falhaC{
-    top: 57vh;
-    left: 35.5vw;
+    top: 60vh;
+    left: 36vw;
     display: none;
+}
+
+#falhaC img{
+    width: 35px;
 }
 
 #falhaCL{
@@ -701,11 +705,11 @@ header nav li:hover{
 
     color: white;
 
-    background-color: #0a9e9ead;
+    background-color: brown;
 }
 
 .button_cadastro:hover{
-    background-color: #0de4e4ad;
+    background-color: rgb(117, 25, 25);
     
     transform: scale(1.1);
 }
@@ -726,7 +730,7 @@ header nav li:hover{
 
     background-color: #000000ad;
 
-    border: 3px solid #0bccccad;
+    border: 3px solid brown;
     border-radius: 10px;
 }
 
@@ -740,7 +744,7 @@ header nav li:hover{
 
     padding: 10px;
 
-    border: 5px solid #0de4e4ad;
+    border: 5px solid brown;
     border-radius: 50%;
 }
 

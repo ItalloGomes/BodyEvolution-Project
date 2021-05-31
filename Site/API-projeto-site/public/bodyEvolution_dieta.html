@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="IMGS/logo's/logo_transparent.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem vindo!</title>
+
+    <script src="JS/funcoes.js"></script>
+    <script src="JS/calculadoraCadastrados.js"></script>
+    <link rel="stylesheet" href="CSS/styleBodyEvolution.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <img src="IMGS/logo's/logo_transparent.png" alt="">
+
+        <nav>
+            <li><a href="bodyEvolution_painel.html">Painel</a></li>
+            <li>Dieta</li>
+            <li><a href="bodyEvolution_medidas.html">Medidas</a></li>
+            <li><a href="bodyEvolution_exercicios.html">Exercicios</a></li>
+            <button class="logout" id="logout" onclick="logoff()">Sair</button>
+        </nav>
+
+    </header>
+
+    <section id="calculator">
+
+        <div class="middleContent">
+
+            <div class="titulo">Calculadora para montagem de dieta</div>
+
+            <div class="conteudoFormulario">
+
+                <div class="formPart">
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Objetivo*</span>
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="perder" onchange="selectObjetivo()">
+                        Perder Peso
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="manter" onchange="selectObjetivo()">
+                        Manter Peso
+                        <br>
+                        <input type="radio" id="in_objetivo" name="objetivo" value="ganhar" onchange="selectObjetivo()">
+                        Ganhar Peso
+
+                    </div>
+
+                    <br>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Altura(cm)*</span>
+                        <br>
+                        <input type="number" id="in_altura" class="inpt" name="altura" min="1" max="300"
+                            onkeyup="setAltura()" required>
+
+                    </div>
+
+                    <div class="topicoFormularioCalculadora">
+
+                        <span class="txtFormularioCalculadora">Peso(kg)*</span>
+                        <br>
+                        <input type="number" id="in_peso" class="inpt" name="peso" min="1" max="250" onkeyup="setPeso()"
+                            required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="asideContent">
+
+            <form id="form_cadastroDieta" method="POST" onsubmit="return cadastrarDieta()">
+
+                <input type="text" name="id" id="idUser" style="display: none;">
+
+                <div class="macros">
+
+                    <div class="macro">
+                        <span class="descMacro">Proteína</span>
+                        <br>
+                        <input type="text" name="proteina" class="gMacro" id="gMacroP">
+                        <span class="grama">g</span>
+                    </div>
+
+                    <div class="macro">
+                        <span class="descMacro">Gordura</span>
+                        <br>
+                        <input type="text" name="gordura" class="gMacro" id="gMacroG">
+                        <span class="grama">g</span>
+                    </div>
+
+                    <div class="macro">
+                        <span class="descMacro">Carboidrato</span>
+                        <br>
+                        <input type="text" name="carboidrato" class="gMacro" id="gMacroC">
+                        <span class="grama">g</span>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <div class="topicoFormularioCalculadoraR">
+
+                    <span class="txtFormularioCalculadora">Taxa Metabólica Basal(TMB)</span>
+                    <br>
+                    <input type="text" id="in_tmb" class="inpt" name="tmb" placeholder="Kcal">
+                    <br>
+                    <span class="txtDesc">Calorias que seu corpo gasta em descanso.</span>
+
+                </div>
+
+                <br>
+
+                <div class="topicoFormularioCalculadoraR">
+
+                    <span class="txtFormularioCalculadora">Tempo do treino(minutos)*</span>
+                    <br>
+                    <input type="number" id="in_tempoTreino" class="inpt" min="1" max="300" onkeyup="setTempoTreino()"
+                        required>
+
+                </div>
+
+                <br>
+
+                <div class="topicoFormularioCalculadoraR">
+
+                    <span class="txtFormularioCalculadora">Gasto Calórico com Atividade Física</span>
+                    <br>
+                    <input type="text" id="in_gastoCalorico" class="inpt" name="gastoComTreino" placeholder="Kcal">
+                    <br>
+                    <span class="txtDesc">Calorias que seu corpo gasta em descanso somados com o treino.</span>
+
+                </div>
+
+                <br>
+
+                <div class="topicoFormularioCalculadoraR">
+
+                    <span class="txtFormularioCalculadora" id="consumir">Consumir</span>
+                    <br>
+                    <input type="text" id="in_deficit" class="inpt" name="ConsumoObjetivo" placeholder="Kcal">
+
+                </div>
+
+                <div class="topicoFormularioCalculadoraR">
+
+                    <input type="submit" id="btn_cadastrar_Macros" class="button_cadastro" value="Cadastrar">
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    idUser.value = idUsuario;
+
+    function cadastrarDieta() {
+
+        var formularioDieta = new URLSearchParams(new FormData(form_cadastroDieta));
+
+        fetch("/macros/cadastrarMacros", {
+            method: "POST",
+            body: formularioDieta
+        }).then(function (response) {
+            if (response.ok) {
+
+                window.location.href = 'bodyEvolution_painel.html';
+
+            } else {
+                response.text().then(function (resposta) {
+                    console.log("Erro de cadastro: " + resposta);
+                });
+
+            }
+        });
+
+        return false;
+
+    }
+
+
+</script>

@@ -8,6 +8,8 @@ create table tbUsuario(
     ,nomeUsuario varchar(100) not null
     ,sexoUsuario varchar(1) not null
     ,check (sexoUsuario = 'm' or sexoUsuario = 'f')
+    ,biotipoUsuario varchar(5)
+    ,check (biotipoUsuario = 'ecto' or biotipoUsuario = 'meso' or biotipoUsuario = 'endo')
     ,dataNasctoUsuario date not null
     ,emailUsuario varchar(100) not null
     ,senhaUsuario varchar(50) not null
@@ -37,12 +39,13 @@ create table tbMedidaUsuario(
 create table tbMacros(
 	idMacros int primary key auto_increment
     
-    ,proteinaMacros float
-    ,gorduraMacros float
-    ,carboMacros float
+    ,proteinaMacros float not null
+    ,gorduraMacros float not null
+    ,carboMacros float not null
     
-    ,taxaMetabolicaMacros float
-    ,gastoCaloricoTreinoMacros float
+    ,taxaMetabolicaMacros float not null
+    ,gastoCaloricoTreinoMacros float not null
+    ,consumoObjetivoMacros float not null
     
     ,fkUsuario int
     ,foreign key(fkUsuario) references tbUsuario(idUsuario)
@@ -72,7 +75,8 @@ desc tbExercicioUsuario;
 desc tbExercicio;
 
 select * from tbUsuario;
-
+select * from tbMacros;
+select * from tbExercicio;
 
 /* INSERTS */
 

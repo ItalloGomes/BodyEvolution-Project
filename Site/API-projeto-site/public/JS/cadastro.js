@@ -10,8 +10,7 @@ function cadastrar() {
 
             iniciaModal('modal-login');
             
-            falhaC.style.display = 'none';
-            sucessoC.style.display = 'block';
+            validaFormulario()
 
             limpaFormularioCadastro();
 
@@ -22,8 +21,7 @@ function cadastrar() {
                 erro.innerHTML = resposta;
             });
 
-            falhaC.style.display = 'block';
-            sucessoC.style.display = 'none';
+            validaFormulario()
 
             limpaFormularioCadastro()
 
