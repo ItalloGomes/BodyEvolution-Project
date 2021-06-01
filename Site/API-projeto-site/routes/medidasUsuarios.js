@@ -3,7 +3,6 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var MedidaUsuario = require('../models').MedidaUsuario;
 
-/* Recuperar as últimas N leituras */
 router.get('/ultimasMedidas/:idUsuario', function(req, res, next) {
 	
 	var idUsuario = req.params.idUsuario;

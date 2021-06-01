@@ -124,52 +124,35 @@ header nav li:hover{
 
 /*  ASIDE DE PERCENTUAL DE GORDURA */
 
-#percentual{
-    float: left;
+#nome_usuario_header{
     position: relative;
 
-    height: 59vh;
-    width: 20vw;
+    font-size: 1.2em;
+    font-weight: bold;
 
-    top: 25vh;
-    left: 3vw;
+    top: -8vh;
+    left: -28vw;
+    
+    color: white;
 
-    text-align: center;
+    padding: 10px 60px 10px 60px;
 
     border-radius: 5px;
 
-    padding: 15px;
-
     background-color: #505050;
 }
-
-#nome_usuario_header{
-    font-size: 1em;
-    font-weight: bold;
-
-    color: white;
-}
-
-.referencialBF{
-    height: 50vh;
-    width: 20vw;
-
-    margin-top: 3vh;
-
-    background-color: #ff0000;
-}
-
 
 /*  Seção do meio  */
 
 #estatisticas{
     position: relative;
 
-    height: 73vh;
-    width: 64vw;
+    height: 100vh;
+    width: 84vw;
 
-    top: 25vh;
-    left: 30vw;
+    top: 33vh;
+
+    margin: 0 auto;
 
     border-radius: 5px;
 }
@@ -178,7 +161,7 @@ header nav li:hover{
     position: relative;
     float: left;
 
-    left: -21vw;
+    left: 3vw;
 
     height: 100px;
     width: 100px;
@@ -216,19 +199,193 @@ header nav li:hover{
 .central_Dieta{
     position: relative;
 
-    height: 70%;
+    height: 42vh;
     width: 100%;
 
-    top: 15vh;
+    top: 5vh;
 
     border-radius: 5px;
 
+    padding: 10px;
+
     background-color: #505050;
+    
+    overflow-y: scroll;
 }
 
+.central_Dieta::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.central_Dieta::-webkit-scrollbar-track {
+    background: #d8d8d8;
+}
 
+.central_Dieta::-webkit-scrollbar-thumb {
+    background-color: brown;
+    border-radius: 15px;
+}
 
+#graficoPeso{
+    height: 20vh;
+    width: 80%;
 
+    margin: 0 auto;
+}
+
+#chartPeso{
+    position: relative;
+
+    top: 2vh;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoBraco{
+    float: left;
+    height: 13vh;
+    width: 29%;
+}
+
+#chartBraco{
+    position: relative;
+
+    top: 29vh;
+
+    left: 2.5vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoCoxa{
+    float: left;
+    height: 13vh;
+    width: 29%;
+}
+
+#chartCoxa{
+    position: relative;
+
+    top: 29vh;
+
+    left: 5.0vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoPantu{
+    float: left;
+    height: 13vh;
+    width: 29%;
+}
+
+#chartPantu{
+    position: relative;
+
+    top: 29vh;
+
+    left: 8.0vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoPescoco{
+    float: left;
+    height: 34vh;
+    width: 29%;
+}
+
+#chartPescoco{
+    position: relative;
+
+    top: 55vh;
+
+    left: 2.5vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoCintEscap{
+    float: left;
+    height: 34vh;
+    width: 29%;
+}
+
+#chartCintEscap{
+    position: relative;
+
+    top: 55vh;
+
+    left: 5vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoPeito{
+    float: left;
+    height: 34vh;
+    width: 29%;
+}
+
+#chartPeito{
+    position: relative;
+
+    top: 55vh;
+
+    left: 8vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoCintura{
+    float: left;
+    height: 34vh;
+    width: 29%;
+}
+
+#chartCintura{
+    position: relative;
+
+    top: 60vh;
+
+    left: 15vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
+
+#graficoQuadril{
+    float: left;
+    height: 34vh;
+    width: 29%;
+}
+
+#chartQuadril{
+    position: relative;
+
+    top: 60vh;
+
+    left: 19vw;
+
+    color: #c9c9c9;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+}
 
 
 

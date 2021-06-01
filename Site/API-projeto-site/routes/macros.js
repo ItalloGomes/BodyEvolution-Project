@@ -3,14 +3,13 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Macro = require('../models').Macro;
 
-/* Recuperar as últimas N leituras */
 router.get('/ultimosMacros/:idUsuario', function(req, res, next) {
 	
 	const limite_linhas = 1;
 
 	var idUsuario = req.params.idUsuario;
 
-	console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
+	console.log(`Recuperando os ultimos macros`);
 	
 	let instrucaoSql = `select * from tbMacros
 						where fkUsuario = ${idUsuario}

@@ -6,14 +6,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem vindo!</title>
+    <title>Painel de progressão</title>
 
     <script src="JS/funcoes.js"></script>
     <link rel="stylesheet" href="CSS/styleBodyEvolution.css">
 
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+
 </head>
 
-<body onload="retornaMacros()">
+<body onload="initPage()" style="overflow-y: hidden;">
 
     <header>
 
@@ -30,19 +32,10 @@
 
     </header>
 
-    <aside id="percentual">
+    <section id="estatisticas">
 
         <span id="nome_usuario_header"></span>
 
-        <div class="referencialBF">
-
-
-
-        </div>
-
-    </aside>
-
-    <section id="estatisticas">
 
         <div class="box_macro" id="box_proteina">
             <span class="descMacro">Proteína</span>
@@ -65,11 +58,52 @@
             <span class="descMacro">Consumir: </span>
             <span class="gMacro" id="Kcal_id"></span>
         </div>
-        
+
         <br>
 
-        <div class="central_Dieta"></div>
-    
+        <div class="central_Dieta">
+
+            <div id="graficoPeso">
+                <canvas id="chartPeso"></canvas>
+            </div>
+
+            <br>
+            <br>
+
+            <div id="graficoBraco">
+                <canvas id="chartBraco"></canvas>
+            </div>
+
+            <div id="graficoCoxa">
+                <canvas id="chartCoxa"></canvas>
+            </div>
+
+            <div id="graficoPantu">
+                <canvas id="chartPantu"></canvas>
+            </div>
+
+            <div id="graficoPescoco">
+                <canvas id="chartPescoco"></canvas>
+            </div>
+
+            <div id="graficoCintEscap">
+                <canvas id="chartCintEscap"></canvas>
+            </div>
+
+            <div id="graficoPeito">
+                <canvas id="chartPeito"></canvas>
+            </div>
+
+            <div id="graficoCintura">
+                <canvas id="chartCintura"></canvas>
+            </div>
+
+            <div id="graficoQuadril">
+                <canvas id="chartQuadril"></canvas>
+            </div>
+
+        </div>
+
     </section>
 
 
@@ -85,6 +119,31 @@
 
     nome_usuario_header.innerHTML = `Bem vindo(a), ${nomeUsuario}!`;
 
+    var chart = undefined;
+    var chartBraco = undefined;
+    var chartCoxa = undefined;
+    var chartPantu = undefined;
+    var chartPescoco = undefined;
+    var chartCintEscap = undefined;
+    var chartPeito = undefined;
+    var chartCintura = undefined;
+    var chartQuadril = undefined;
+    function initPage() {
+        chart = startChart();
+        chartBraco = startChartBraco();
+        chartCoxa = startChartCoxa();
+        chartPantu = startChartPantu();
+
+        chartPescoco = startChartPescoco();
+        chartCintEscap = startChartCintEscap();
+        chartPeito = startChartPeito();
+        chartCintura = startChartCintura();
+        chartQuadril = startChartQuadril();
+
+        retornaMacros();
+        get_peso();
+    }
+
     function retornaMacros() {
         fetch(`/macros/ultimosMacros/${idUsuario}`)
             .then(resposta => {
@@ -92,23 +151,23 @@
                 if (resposta.ok) {
                     resposta.json().then(function (resposta) {
 
-                        console.log(new Object(resposta[0]));
+                        // console.log(new Object(resposta[0]));
 
                         var dadosMacros = new Object(resposta[0]);
 
-                        if(dadosMacros.proteina){
-                            
+                        if (dadosMacros.proteina) {
+
                             gMacroP.innerHTML = `${dadosMacros.proteina}g`;
                             gMacroG.innerHTML = `${dadosMacros.gordura}g`;
                             gMacroC.innerHTML = `${dadosMacros.carbo}g`;
-    
+
                             Kcal_id.innerHTML = `${dadosMacros.consumoObjetivo}Kcal`;
-                        
-                        }else{
+
+                        } else {
                             gMacroP.innerHTML = `g`;
                             gMacroG.innerHTML = `g`;
                             gMacroC.innerHTML = `g`;
-    
+
                             Kcal_id.innerHTML = `Kcal`;
                         }
 
@@ -124,6 +183,491 @@
 
     }
 
+    /* Iniciando todos os Charts */
 
+    function startChart() {
+        var context = document.getElementById("chartPeso").getContext("2d");
+        context.canvas.width = 450;
+        context.canvas.height = 130;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Peso",
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Peso'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartBraco() {
+        var context = document.getElementById("chartBraco").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                    label: "Braço Direito",
+                    data: [],
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                    },
+                    {
+                    label: "Braço Esquerdo",
+                    data: [],
+                    type: 'line',
+                    borderColor: ['#962424']
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartCoxa() {
+        var context = document.getElementById("chartCoxa").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                    label: "Coxa Direita",
+                    data: [],
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                    },
+                    {
+                    label: "Coxa Esquerda",
+                    data: [],
+                    type: 'line',
+                    borderColor: ['#962424']
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartPantu() {
+        var context = document.getElementById("chartPantu").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [
+                    {
+                    label: "Panturrilha Direita",
+                    data: [],
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                    },
+                    {
+                    label: "Panturrilha Esquerda",
+                    data: [],
+                    type: 'line',
+                    borderColor: ['#962424']
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartPescoco() {
+        var context = document.getElementById("chartPescoco").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Pescoço",
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartCintEscap() {
+        var context = document.getElementById("chartCintEscap").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Cintura Escapular",
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartPeito() {
+        var context = document.getElementById("chartPeito").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Peito",
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true   
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartCintura() {
+        var context = document.getElementById("chartCintura").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Cintura",
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true   
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    function startChartQuadril() {
+        var context = document.getElementById("chartQuadril").getContext("2d");
+        context.canvas.width = 300;
+        context.canvas.height = 200;
+
+        var configuration = {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: "Quadril",
+                    type: 'line',
+                    borderColor: ['#0c9397']
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        //type: 'value',
+                        distribution: 'data',
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Centimetros'
+                        },
+                        ticks: {
+                            beginAtZero: true   
+                        }
+                    }]
+                },
+                animation: {
+                    duration: 0
+                }
+            }
+        };
+
+        return new Chart(context, configuration);
+    }
+
+    //Função para obter os dados de temperatura do server
+
+    //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+    //hora de montar/atualizar o gráfico
+    this.lastIndexTemp = 0;
+    this.time = 0;
+
+    function get_peso() {
+
+        fetch(`/medidas/ultimasMedidas/${idUsuario}`)
+            .then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+
+                        resposta.forEach(element => {
+
+                            console.log(element);
+
+                            var dia = new Date(element.dataHora).getDate();
+                            var mes = new Date(element.dataHora).getMonth();
+                            var ano = new Date(element.dataHora).getFullYear();
+
+                            var data = `${dia}/${mes}/${ano}`;
+                            
+                            chart.data.labels.push(data);
+                            chart.data.datasets[0].data.push(element.peso)
+
+                            chartBraco.data.labels.push(data);
+                            chartBraco.data.datasets[0].data.push(element.bracoDireito);
+                            chartBraco.data.datasets[1].data.push(element.bracoEsquerdo);
+
+                            chartCoxa.data.labels.push(data);
+                            chartCoxa.data.datasets[0].data.push(element.coxaDireita);
+                            chartCoxa.data.datasets[1].data.push(element.coxaEsquerda);
+                            
+                            chartPantu.data.labels.push(data);
+                            chartPantu.data.datasets[0].data.push(element.panturrilhaDireita);
+                            chartPantu.data.datasets[1].data.push(element.panturrilhaEsquerda);
+                            
+                            chartPescoco.data.labels.push(data);
+                            chartPescoco.data.datasets[0].data.push(element.pescoco);
+                            
+                            chartCintEscap.data.labels.push(data);
+                            chartCintEscap.data.datasets[0].data.push(element.cinturaEscapular);
+                            
+                            chartPeito.data.labels.push(data);
+                            chartPeito.data.datasets[0].data.push(element.peito);
+                            
+                            chartCintura.data.labels.push(data);
+                            chartCintura.data.datasets[0].data.push(element.cintura);
+                            
+                            chartQuadril.data.labels.push(data);
+                            chartQuadril.data.datasets[0].data.push(element.quadril);
+                            
+                        });
+                            chart.update();
+                            chartBraco.update();
+                            chartCoxa.update();
+                            chartPantu.update();
+                            chartPescoco.update();
+                            chartCintEscap.update();
+                            chartPeito.update();
+                            chartCintura.update();
+                            chartQuadril.update();
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
+            });
+
+
+    }
+
+
+    // chart.data.datasets[0].data.push(10)
 
 </script>
