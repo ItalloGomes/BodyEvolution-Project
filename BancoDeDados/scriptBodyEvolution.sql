@@ -52,6 +52,7 @@ create table tbMacros(
     ,foreign key(fkUsuario) references tbUsuario(idUsuario)
 );
 
+/*
 create table tbExercicio(
 	idExercicio int primary key auto_increment
     ,nomeExercicio varchar(50) not null
@@ -66,23 +67,21 @@ create table tbExercicioUsuario(
     ,primary key(fkExercicio, fkUsuario)
     ,cargaExercicioUsuario float
 );
-
+*/
 /* SELECTS E DESCS*/
 
 desc tbUsuario;
 desc tbMedidaUsuario;
 desc tbMacros;
-desc tbExercicioUsuario;
-desc tbExercicio;
 
 select * from tbUsuario;
 select * from tbMacros;
 select * from tbMedidaUsuario;
-select * from tbExercicio;
 
 
 /* INSERTS */
 
+/*
 insert into tbExercicio(nomeExercicio, musculoRecrutadoExercicio) 
 values ('Supino Reto', 'Peitoral')
 		,('Supino Inclinado', 'Peitoral')
@@ -109,8 +108,7 @@ values ('Supino Reto', 'Peitoral')
         ,('Elevação de panturrilha', 'Panturrilha')
         ,('Abdominal', 'Abdomen')
         ,('Elevação de Pernas', 'Abdomen');
-
-
+*/
 
 
 
